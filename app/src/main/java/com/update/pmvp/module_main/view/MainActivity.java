@@ -2,7 +2,6 @@ package com.update.pmvp.module_main.view;
 
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.update.module_base.base.activity.BaseMvpActivity;
 import com.update.pmvp.R;
