@@ -1,9 +1,9 @@
 package com.update.module_base.base.contract;
 
 /**
- * author : liupu
- * date   : 2019/4/15
- * desc   :
+ * @author : liupu
+ *  date   : 2019/4/15
+ *  desc   :
  */
 public interface IContract {
     interface View{

@@ -4,9 +4,9 @@ import com.update.module_base.base.contract.IContract;
 import com.update.module_base.base.model.BaseModel;
 
 /**
- * author : liupu
- * date   : 2019/4/15
- * desc   :
+ * @author : liupu
+ *  date   : 2019/4/15
+ *  desc   :
  */
 public abstract class BasePresenter<V extends IContract.View,M extends BaseModel>
         implements IContract.Presenter<V> {

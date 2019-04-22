@@ -3,9 +3,9 @@ package com.update.pmvp.module_main.model;
 import com.update.module_base.base.model.BaseModel;
 
 /**
- * author : liupu
- * date   : 2019/4/19
- * desc   :
+ * @author : liupu
+ *  date   : 2019/4/19
+ *  desc   :
  */
 public class MainModel extends BaseModel {
 

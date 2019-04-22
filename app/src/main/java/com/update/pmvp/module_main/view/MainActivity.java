@@ -9,9 +9,9 @@ import com.update.pmvp.module_main.contract.MainContract;
 import com.update.pmvp.module_main.presenter.MainPresenter;
 
 /**
- * author : liupu
- * date   : 2019/4/19
- * desc   :
+ * @author : liupu
+ *  date   : 2019/4/19
+ *  desc   :
  */
 public class MainActivity extends BaseMvpActivity<MainPresenter> implements MainContract.View {
     TextView tv_content;
