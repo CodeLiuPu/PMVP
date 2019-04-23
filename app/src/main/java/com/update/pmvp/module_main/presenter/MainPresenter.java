@@ -6,8 +6,8 @@ import com.update.pmvp.module_main.model.MainModel;
 
 /**
  * @author : liupu
- *  date   : 2019/4/19
- *  desc   :
+ * date   : 2019/4/19
+ * desc   :
  */
 public class MainPresenter extends BasePresenter<MainContract.View, MainModel> implements MainContract.Presenter {
 

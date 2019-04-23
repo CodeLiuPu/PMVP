@@ -10,8 +10,8 @@ import retrofit2.http.Query;
 
 /**
  * @author : liupu
- *  date   : 2019/4/20
- *  desc   :
+ * date   : 2019/4/20
+ * desc   :
  */
 public interface BaseApiService {
 

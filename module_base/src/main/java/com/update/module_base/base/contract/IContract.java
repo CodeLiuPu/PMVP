@@ -2,16 +2,19 @@ package com.update.module_base.base.contract;
 
 /**
  * @author : liupu
- *  date   : 2019/4/15
- *  desc   :
+ * date   : 2019/4/15
+ * desc   :
  */
 public interface IContract {
-    interface View{
+    interface View {
         void showProgress(int res);
+
         void dismissProgress();
     }
-    interface Presenter<V extends View>{
+
+    interface Presenter<V extends View> {
         void attachView(V view);
+
         void detachView();
     }
 }

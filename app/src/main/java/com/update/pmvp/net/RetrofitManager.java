@@ -10,7 +10,7 @@ import com.update.module_base.net.BaseRetrofitManager;
 public class RetrofitManager extends BaseRetrofitManager {
 
     //获取创建的服务对象
-    public static ApiService createApi(){
+    public static ApiService createApi() {
         return createApi(ApiService.class);
     }
 

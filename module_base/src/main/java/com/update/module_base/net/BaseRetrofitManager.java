@@ -2,21 +2,22 @@ package com.update.module_base.net;
 
 
 import com.update.module_base.GlobalConfig;
+import com.update.module_base.net.interceptor.HttpLoggingInterceptor;
 
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
+
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * @author : liupu
- *  date   : 2019/4/20
- *  desc   :
+ * date   : 2019/4/20
+ * desc   :
  */
-public abstract class BaseRetrofitManager<T>{
+public abstract class BaseRetrofitManager<T> {
     private static final String URL = "";
 
     private final static Retrofit retrofit;
@@ -34,7 +35,7 @@ public abstract class BaseRetrofitManager<T>{
                     .setLevel(HttpLoggingInterceptor.Level.BODY));
         }
 
-         retrofit = new Retrofit.Builder()
+        retrofit = new Retrofit.Builder()
                 .baseUrl(URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -43,7 +44,7 @@ public abstract class BaseRetrofitManager<T>{
     }
 
     //获取创建的服务对象
-    public static  <T> T createApi(final  Class<T> service ){
+    public static <T> T createApi(final Class<T> service) {
         return retrofit.create(service);
     }
 

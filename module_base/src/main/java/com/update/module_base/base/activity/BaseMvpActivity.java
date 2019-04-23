@@ -4,8 +4,8 @@ import com.update.module_base.base.contract.IContract;
 
 /**
  * @author : liupu
- *  date   : 2019/4/19
- *  desc   :
+ * date   : 2019/4/19
+ * desc   :
  */
 public abstract class BaseMvpActivity<P extends IContract.Presenter>
         extends BaseSimpleActivity
@@ -15,7 +15,7 @@ public abstract class BaseMvpActivity<P extends IContract.Presenter>
     @Override
     protected void initView() {
         mPresenter = initPresenter();
-        if (null != mPresenter){
+        if (null != mPresenter) {
             mPresenter.attachView(this);
         }
     }
@@ -23,7 +23,7 @@ public abstract class BaseMvpActivity<P extends IContract.Presenter>
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (null != mPresenter){
+        if (null != mPresenter) {
             mPresenter.detachView();
             mPresenter = null;
         }
@@ -38,6 +38,7 @@ public abstract class BaseMvpActivity<P extends IContract.Presenter>
     public void dismissProgress() {
 
     }
+
     protected abstract P initPresenter();
 
 }

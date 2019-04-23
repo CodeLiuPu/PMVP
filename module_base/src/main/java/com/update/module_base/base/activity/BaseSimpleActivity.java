@@ -7,8 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 
 /**
  * @author : liupu
- *  date   : 2019/4/19
- *  desc   :
+ * date   : 2019/4/19
+ * desc   :
  */
 public abstract class BaseSimpleActivity extends AppCompatActivity {
     protected Context mContext;

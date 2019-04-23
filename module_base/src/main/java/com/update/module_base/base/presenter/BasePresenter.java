@@ -5,15 +5,15 @@ import com.update.module_base.base.model.BaseModel;
 
 /**
  * @author : liupu
- *  date   : 2019/4/15
- *  desc   :
+ * date   : 2019/4/15
+ * desc   :
  */
-public abstract class BasePresenter<V extends IContract.View,M extends BaseModel>
+public abstract class BasePresenter<V extends IContract.View, M extends BaseModel>
         implements IContract.Presenter<V> {
-    protected V  mView;
+    protected V mView;
     protected M mModel;
 
-    public BasePresenter(){
+    public BasePresenter() {
 
     }
 

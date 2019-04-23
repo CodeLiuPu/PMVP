@@ -8,8 +8,8 @@ import io.reactivex.schedulers.Schedulers;
 
 /**
  * @author : liupu
- *  date   : 2019/4/23
- *  desc   :
+ * date   : 2019/4/23
+ * desc   :
  */
 public class RxSchedulers {
 
