@@ -10,8 +10,8 @@ import android.view.View;
  * date    : 2019/4/22
  * desc    :
  */
-public abstract class BaseRecyclerViewHolder<T extends BaseRecyclerViewItem> extends RecyclerView.ViewHolder {
-    public BaseRecyclerViewHolder(@NonNull View itemView) {
+public abstract class BaseRVHolder<T extends BaseRVItem> extends RecyclerView.ViewHolder {
+    public BaseRVHolder(@NonNull View itemView) {
         super(itemView);
     }
 
