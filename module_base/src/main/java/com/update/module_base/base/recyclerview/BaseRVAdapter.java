@@ -13,21 +13,19 @@ import java.util.List;
  * date    : 2019/4/22
  * desc    :
  */
-public abstract class BaseRVAdapter<T extends BaseRVItem, H extends RecyclerView.ViewHolder> extends RecyclerView.Adapter{
+public class BaseRVAdapter<T extends BaseRVItem, H extends RecyclerView.ViewHolder> extends RecyclerView.Adapter{
 
     protected Context context;
     protected List<T> data;
 
     public BaseRVAdapter(Context context) {
         this.context = context;
-        data = new ArrayList<T>();
+        data = new ArrayList<>();
     }
-
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-
         return null;
     }
 
@@ -38,8 +36,11 @@ public abstract class BaseRVAdapter<T extends BaseRVItem, H extends RecyclerView
 
     @Override
     public int getItemCount() {
-        return 0;
+        return data.size();
     }
 
-    protected abstract int getType(int position);
+    @Override
+    public int getItemViewType(int position) {
+        return data.get(position).type;
+    }
 }

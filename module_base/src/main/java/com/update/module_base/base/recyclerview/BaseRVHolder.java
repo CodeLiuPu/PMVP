@@ -10,10 +10,12 @@ import android.view.View;
  * date    : 2019/4/22
  * desc    :
  */
-public abstract class BaseRVHolder<T extends BaseRVItem> extends RecyclerView.ViewHolder {
+public class BaseRVHolder<T extends BaseRVItem> extends RecyclerView.ViewHolder {
     public BaseRVHolder(@NonNull View itemView) {
         super(itemView);
     }
 
-    protected abstract void injectView(T t, Context context);
+    protected void injectView(T t, Context context){
+
+    }
 }
