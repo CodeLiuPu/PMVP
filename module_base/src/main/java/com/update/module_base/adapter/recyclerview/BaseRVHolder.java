@@ -1,4 +1,4 @@
-package com.update.module_base.base.recyclerview;
+package com.update.module_base.adapter.recyclerview;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
