@@ -7,15 +7,15 @@ import android.util.Log;
  * date   : 2019/4/19
  * desc   :
  */
-public final class LogUtils {
+public final class LogUtil {
 
     private static String TAG = "TAG_UPDATE";
 
     private static boolean showLog = false;
 
     public static void setConfig(LogConfig config) {
-        LogUtils.TAG = config.tag;
-        LogUtils.showLog = config.isDebug;
+        LogUtil.TAG = config.tag;
+        LogUtil.showLog = config.isDebug;
     }
 
     public static void v(String msg) {

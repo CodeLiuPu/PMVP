@@ -1,7 +1,7 @@
 package com.update.module_base;
 
 import com.update.module_base.utils.log.LogConfig;
-import com.update.module_base.utils.log.LogUtils;
+import com.update.module_base.utils.log.LogUtil;
 
 /**
  * @author : liupu
@@ -17,6 +17,6 @@ public class GlobalConfigs {
 
     public static void setDebug(boolean isDebug) {
         GlobalConfigs.isDebug = isDebug;
-        LogUtils.setConfig(new LogConfig("Hello", true));
+        LogUtil.setConfig(new LogConfig("Hello", true));
     }
 }
