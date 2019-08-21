@@ -6,14 +6,14 @@ import android.widget.TextView;
 import com.update.module_base.ui.activity.BaseMvpActivity;
 import com.update.pmvp.R;
 import com.update.pmvp.module_main.contract.MainContract;
-import com.update.pmvp.module_main.presenter.MainMVPPresenter;
+import com.update.pmvp.module_main.presenter.MainPresenter;
 
 /**
  * @author : liupu
  * date   : 2019/4/19
  * desc   :
  */
-public class MainActivity extends BaseMvpActivity<MainMVPPresenter> implements MainContract.View {
+public class MainActivity extends BaseMvpActivity<MainPresenter> implements MainContract.View {
     TextView tv_content;
 
     @Override
@@ -33,8 +33,8 @@ public class MainActivity extends BaseMvpActivity<MainMVPPresenter> implements M
     }
 
     @Override
-    protected MainMVPPresenter initPresenter() {
-        return new MainMVPPresenter();
+    protected MainPresenter initPresenter() {
+        return new MainPresenter();
     }
 
     @Override

@@ -7,18 +7,18 @@ import com.update.pmvp.module_main.contract.MainContract;
  * date   : 2019/4/19
  * desc   :
  */
-public class MainMVPModel implements MainContract.Model {
+public class MainModel implements MainContract.Model {
 
-    private MainMVPModel() {
+    private MainModel() {
 
     }
 
-    public static MainMVPModel instance() {
+    public static MainModel instance() {
         return Holder.MODEL;
     }
 
     private static class Holder {
-        public static final MainMVPModel MODEL = new MainMVPModel();
+        public static final MainModel MODEL = new MainModel();
     }
 
 
