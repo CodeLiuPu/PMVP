@@ -1,13 +1,12 @@
 package com.update.module_base.net;
 
 
-import com.update.module_base.GlobalConfig;
+import com.update.module_base.GlobalConfigs;
 import com.update.module_base.net.interceptor.HttpLoggingInterceptor;
 
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
-
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -30,7 +29,7 @@ public abstract class BaseRetrofitManager<T> {
                 .writeTimeout(20, TimeUnit.SECONDS)
                 .readTimeout(20, TimeUnit.SECONDS);
 
-        if (GlobalConfig.IS_DEBUG) {
+        if (GlobalConfigs.isDebug()) {
             okHttpClientBuilder.addInterceptor(new HttpLoggingInterceptor()
                     .setLevel(HttpLoggingInterceptor.Level.BODY));
         }
