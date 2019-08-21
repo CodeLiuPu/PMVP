@@ -3,17 +3,17 @@ package com.update.pmvp.module_main.view;
 import android.view.View;
 import android.widget.TextView;
 
-import com.update.module_base.base.activity.BaseMvpActivity;
+import com.update.module_base.ui.activity.BaseMvpActivity;
 import com.update.pmvp.R;
 import com.update.pmvp.module_main.contract.MainContract;
-import com.update.pmvp.module_main.presenter.MainPresenter;
+import com.update.pmvp.module_main.presenter.MainMVPPresenter;
 
 /**
  * @author : liupu
  * date   : 2019/4/19
  * desc   :
  */
-public class MainActivity extends BaseMvpActivity<MainPresenter> implements MainContract.View {
+public class MainActivity extends BaseMvpActivity<MainMVPPresenter> implements MainContract.View {
     TextView tv_content;
 
     @Override
@@ -33,8 +33,8 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements Main
     }
 
     @Override
-    protected MainPresenter initPresenter() {
-        return new MainPresenter();
+    protected MainMVPPresenter initPresenter() {
+        return new MainMVPPresenter();
     }
 
     @Override

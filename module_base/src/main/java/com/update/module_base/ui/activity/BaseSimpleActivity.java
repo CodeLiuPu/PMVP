@@ -1,4 +1,4 @@
-package com.update.module_base.base.activity;
+package com.update.module_base.ui.activity;
 
 import android.content.Context;
 import android.os.Bundle;

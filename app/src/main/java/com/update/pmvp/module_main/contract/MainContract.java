@@ -1,6 +1,7 @@
 package com.update.pmvp.module_main.contract;
 
-import com.update.module_base.base.contract.IContract;
+import com.update.module_base.mvp.model.BaseMVPModel;
+import com.update.module_base.mvp.view.BaseMVPView;
 
 /**
  * @author : liupu
@@ -8,11 +9,15 @@ import com.update.module_base.base.contract.IContract;
  * desc   :
  */
 public class MainContract {
-    public interface View extends IContract.View {
+
+    public interface Model extends BaseMVPModel {
+         String  getUserName();
+    }
+    public interface View extends BaseMVPView {
         void updateUI(String content);
     }
 
-    public interface Presenter extends IContract.Presenter<View> {
+    public interface Presenter{
         void loadData();
     }
 }

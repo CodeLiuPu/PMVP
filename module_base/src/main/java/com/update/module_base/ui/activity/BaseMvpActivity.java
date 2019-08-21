@@ -1,15 +1,16 @@
-package com.update.module_base.base.activity;
+package com.update.module_base.ui.activity;
 
-import com.update.module_base.base.contract.IContract;
+import com.update.module_base.mvp.presenter.BaseMVPPresenter;
+import com.update.module_base.mvp.view.BaseMVPView;
 
 /**
  * @author : liupu
  * date   : 2019/4/19
  * desc   :
  */
-public abstract class BaseMvpActivity<P extends IContract.Presenter>
+public abstract class BaseMvpActivity<P extends BaseMVPPresenter>
         extends BaseSimpleActivity
-        implements IContract.View {
+        implements BaseMVPView {
     protected P mPresenter;
 
     @Override
@@ -27,16 +28,6 @@ public abstract class BaseMvpActivity<P extends IContract.Presenter>
             mPresenter.detachView();
             mPresenter = null;
         }
-    }
-
-    @Override
-    public void showProgress(int progress) {
-
-    }
-
-    @Override
-    public void dismissProgress() {
-
     }
 
     protected abstract P initPresenter();
