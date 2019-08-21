@@ -7,7 +7,7 @@ import android.util.Log;
  * date   : 2019/4/19
  * desc   :
  */
-public class LogUtils {
+public final class LogUtils {
 
     private static String TAG = "TAG_UPDATE";
 
