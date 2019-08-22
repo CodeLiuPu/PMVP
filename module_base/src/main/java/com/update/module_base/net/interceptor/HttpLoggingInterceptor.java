@@ -150,6 +150,8 @@ public final class HttpLoggingInterceptor implements Interceptor {
         Level level = this.level;
 
         Request request = chain.request();
+
+        // 如果是 NONE 则直接返回 不打印日志
         if (level == Level.NONE) {
             return chain.proceed(request);
         }
@@ -208,8 +210,9 @@ public final class HttpLoggingInterceptor implements Interceptor {
                 logger.log("");
                 if (isPlaintext(buffer)) {
                     String message = buffer.readString(charset);
-//                    String replace = URLDecoder.decode(message.replace(HCNetHelper.KEY_JSONPARAMS + "=", ""));
-//                    String s = DESCryptUtils.decryptBasedDes(replace, AppConfig.DES_KEY);
+
+                    // 解密逻辑
+//                    String s = DESCryptUtils.decryptBasedDes(message, AppConfig.DES_KEY);
 //                    logger.log(HCNetHelper.KEY_JSONPARAMS + "=" + s);
                     try {
                         logger.log(URLDecoder.decode(message));
@@ -289,6 +292,7 @@ public final class HttpLoggingInterceptor implements Interceptor {
                 if (contentLength != 0) {
                     logger.log("");
                     String message = buffer.clone().readString(charset);
+                    // 解密逻辑
 //                    String s = DESCryptUtils.decryptBasedDes(message, AppConfig.DES_KEY);
 //                    logger.log(s);
                     logger.log(message);
