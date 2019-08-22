@@ -18,13 +18,10 @@ public abstract class ASPHelper implements ISPHelper {
     protected SharedPreferences mSharedPreferences;
     protected SharedPreferences.Editor editor;
 
-    protected ASPHelper() {
-
-    }
-
     @Override
-    public void putBoolean(String key, boolean value) {
-        editor.putBoolean(key, value).commit();
+    public ISPHelper putBoolean(String key, boolean value) {
+        editor.putBoolean(key, value);
+        return this;
     }
 
     @Override
@@ -33,8 +30,9 @@ public abstract class ASPHelper implements ISPHelper {
     }
 
     @Override
-    public void putInt(String key, int value) {
-        editor.putInt(key, value).commit();
+    public ISPHelper putInt(String key, int value) {
+        editor.putInt(key, value);
+        return this;
     }
 
     @Override
@@ -43,8 +41,9 @@ public abstract class ASPHelper implements ISPHelper {
     }
 
     @Override
-    public void putLong(String key, long value) {
-        editor.putLong(key, value).commit();
+    public ISPHelper putLong(String key, long value) {
+        editor.putLong(key, value);
+        return this;
     }
 
     @Override
@@ -53,8 +52,9 @@ public abstract class ASPHelper implements ISPHelper {
     }
 
     @Override
-    public void putString(String key, String value) {
-        editor.putString(key, value).commit();
+    public ISPHelper putString(String key, String value) {
+        editor.putString(key, value);
+        return this;
     }
 
     @Override
@@ -63,16 +63,17 @@ public abstract class ASPHelper implements ISPHelper {
     }
 
     @Override
-    public void saveObject(String key, Object object) {
+    public ISPHelper saveObject(String key, Object object) {
         try (ByteArrayOutputStream baos = new ByteArrayOutputStream();
              ObjectOutputStream oos = new ObjectOutputStream(baos)) {
             oos.writeObject(object);
             String oAuth_Base64 = new String(Base64.encode(baos.toByteArray(), Base64.DEFAULT));
             editor.putString(key, oAuth_Base64);
-            editor.commit();
+            return this;
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return this;
     }
 
     @Override
@@ -94,12 +95,21 @@ public abstract class ASPHelper implements ISPHelper {
 
     @Override
     public void remove(String key) {
-        editor.remove(key).commit();
+        editor.remove(key);
     }
 
     @Override
     public void clear() {
-        editor.clear().commit();
+        editor.clear();
     }
 
+    @Override
+    public boolean commit() {
+        return editor.commit();
+    }
+
+    @Override
+    public void apply() {
+        editor.apply();
+    }
 }
