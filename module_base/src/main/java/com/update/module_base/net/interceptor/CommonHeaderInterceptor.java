@@ -13,28 +13,27 @@ import okhttp3.Response;
 /**
  * @author : liupu
  * date   : 2019/8/22
- * desc   : 通用header的拦截器
+ * desc   : 添加通用 header 的拦截器
  */
 public class CommonHeaderInterceptor implements Interceptor {
 
-    private final Map<String, String> maps = new HashMap<>();
+    private final Map<String, String> headers = new HashMap<>();
 
-    public CommonHeaderInterceptor(Map<String, String> params) {
-        if (params != null && !params.isEmpty()) {
-            this.maps.putAll(params);
+    public CommonHeaderInterceptor(Map<String, String> headers) {
+        if (headers != null && !headers.isEmpty()) {
+            this.headers.putAll(headers);
         }
     }
 
     @Override
     public Response intercept(Chain chain) throws IOException {
-        if (maps == null || maps.isEmpty()) {
-
+        if (headers == null || headers.isEmpty()) {
             return chain.proceed(chain.request());
         }
 
         Request request = chain.request();
         Request.Builder reqBuilder = request.newBuilder();
-        reqBuilder.headers(Headers.of(maps));
+        reqBuilder.headers(Headers.of(headers));
         return chain.proceed(reqBuilder.build());
     }
 }
