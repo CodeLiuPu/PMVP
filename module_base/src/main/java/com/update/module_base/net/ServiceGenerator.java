@@ -12,7 +12,7 @@ public class ServiceGenerator {
     private ServiceGenerator() {
     }
 
-    /**得分
+    /**
      * 使用默认 host 创建retrofit
      */
 //    public static <T> T getService(Class<T> serviceClass) {
