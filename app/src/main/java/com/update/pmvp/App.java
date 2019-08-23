@@ -3,6 +3,7 @@ package com.update.pmvp;
 import android.app.Application;
 
 import com.update.module_base.GlobalConfigs;
+import com.update.net.NetConfig;
 
 /**
  * @author : liupu
@@ -16,5 +17,6 @@ public class App extends Application {
         new GlobalConfigs()
                 .init(this)
                 .setDebug(true);
+        NetConfig.setDebug(true);
     }
 }

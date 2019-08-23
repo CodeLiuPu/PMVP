@@ -14,5 +14,4 @@ public class MainModel implements MainContract.Model {
         return "Update";
     }
 
-
 }
