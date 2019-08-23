@@ -1,9 +1,11 @@
 package com.update.net.interceptor;
 
 
+import com.update.net.helper.ICommonHeadersHelper;
+import com.update.net.helper.ICommonParamsHelper;
+
 import java.io.IOException;
 import java.net.URLDecoder;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -19,20 +21,19 @@ import okhttp3.Response;
  */
 public class CommonParamInterceptor implements Interceptor {
 
-    private final Map<String, Object> params = new HashMap<>();//这里是我们的公共参数
+    ICommonParamsHelper paramsHelper;
 
-    public CommonParamInterceptor(Map<String, Object> params) {
-        if (params != null && !params.isEmpty()) {
-            this.params.putAll(params);
-        }
+    public CommonParamInterceptor(ICommonParamsHelper paramsHelper) {
+        this.paramsHelper = paramsHelper;
     }
 
     @Override
     public Response intercept(Chain chain) throws IOException {
+        Map<String, Object> params = paramsHelper.getCommonParams();
+
         if (params == null || params.isEmpty()) {
             return chain.proceed(chain.request());
         }
-
         Request request = chain.request();
         // 添加公共的新的参数
         HttpUrl.Builder authorizedUrlBuilder = request.url().newBuilder();

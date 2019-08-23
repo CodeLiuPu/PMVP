@@ -1,9 +1,12 @@
 package com.update.net.interceptor;
 
 
+import com.update.net.helper.ICommonHeadersHelper;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.jar.JarEntry;
 
 import okhttp3.Headers;
 import okhttp3.Interceptor;
@@ -17,16 +20,16 @@ import okhttp3.Response;
  */
 public class CommonHeaderInterceptor implements Interceptor {
 
-    private final Map<String, String> headers = new HashMap<>();
+    ICommonHeadersHelper headersHelper;
 
-    public CommonHeaderInterceptor(Map<String, String> headers) {
-        if (headers != null && !headers.isEmpty()) {
-            this.headers.putAll(headers);
-        }
+    public CommonHeaderInterceptor(ICommonHeadersHelper headersHelper) {
+        this.headersHelper = headersHelper;
     }
 
     @Override
     public Response intercept(Chain chain) throws IOException {
+        Map<String, String> headers = headersHelper.getCommonHeaders();
+
         if (headers == null || headers.isEmpty()) {
             return chain.proceed(chain.request());
         }

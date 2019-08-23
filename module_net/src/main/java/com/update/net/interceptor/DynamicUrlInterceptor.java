@@ -10,7 +10,9 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 /**
- * 动态替换host
+ * @author : liupu
+ * date   : 2019/8/22
+ * desc   : 动态替换 host 拦截器
  */
 public class DynamicUrlInterceptor implements Interceptor {
 
@@ -19,16 +21,19 @@ public class DynamicUrlInterceptor implements Interceptor {
     @Override
     public Response intercept(Chain chain) throws IOException {
         Request originalRequest = chain.request();
+
         HttpUrl oldUrl = originalRequest.url();
         Request.Builder builder = originalRequest.newBuilder();
+
         List<String> urlnameList = originalRequest.headers(HEADER_BASE_URL);
+
         if (urlnameList != null && urlnameList.size() > 0) {
             //删除原有配置中的值,就是namesAndValues集合里的值
             builder.removeHeader(HEADER_BASE_URL);
 
             String urlname = urlnameList.get(0);
 
-            HttpUrl baseURL=HttpUrl.parse(urlname);
+            HttpUrl baseURL = HttpUrl.parse(urlname);
 
             //重建新的HttpUrl，需要重新设置的url部分
             HttpUrl newHttpUrl = oldUrl.newBuilder()
@@ -36,9 +41,10 @@ public class DynamicUrlInterceptor implements Interceptor {
                     .host(baseURL.host())//主机地址
                     .port(baseURL.port())//端口
                     .build();
+
             Request newRequest = builder.url(newHttpUrl).build();
-            return  chain.proceed(newRequest);
-        }else{
+            return chain.proceed(newRequest);
+        } else {
             return chain.proceed(originalRequest);
         }
 
