@@ -12,9 +12,9 @@ import okhttp3.Response;
 /**
  * 动态替换host
  */
-public class BaseUrlInterceptor implements Interceptor {
+public class DynamicUrlInterceptor implements Interceptor {
 
-    public static final String HEADER_BASE_URL = "baseUrl";//动态baseUrl
+    public static final String HEADER_BASE_URL = "dynamic_url";//动态baseUrl
 
     @Override
     public Response intercept(Chain chain) throws IOException {

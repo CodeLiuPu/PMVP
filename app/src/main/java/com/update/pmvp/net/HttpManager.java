@@ -3,7 +3,7 @@ package com.update.pmvp.net;
 
 import com.update.net.OKHttpFactory;
 import com.update.net.ServiceGenerator;
-import com.update.net.interceptor.BaseUrlInterceptor;
+import com.update.net.interceptor.DynamicUrlInterceptor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +20,7 @@ public class HttpManager<S> {
 
     static {
         final List<Interceptor> interceptors = new ArrayList<>();
-        BaseUrlInterceptor baseUrlInterceptor = new BaseUrlInterceptor();
-        interceptors.add(baseUrlInterceptor);
+        interceptors.add(new DynamicUrlInterceptor());
         OKHttpFactory.instance().setInterceptors(interceptors);
     }
 

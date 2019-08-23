@@ -1,4 +1,4 @@
-package com.update.net;
+package com.update.net.response;
 
 
 import java.io.Serializable;
