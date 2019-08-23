@@ -13,13 +13,13 @@ public class MainPresenter extends BaseMVPPresenter<MainContract.View, MainContr
 
     @Override
     public void loadData() {
-        String name = mModel.getUserName();
-        mView.updateUI(name);
+        String name = mModel.loadData();
+        mView.loadDataSuccess(name);
     }
 
     @Override
     protected MainContract.Model initModel() {
-        return MainModel.instance();
+        return new MainModel();
     }
 
 }

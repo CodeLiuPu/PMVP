@@ -11,10 +11,10 @@ import com.update.module_base.mvp.view.BaseMVPView;
 public class MainContract {
 
     public interface Model extends BaseMVPModel {
-         String  getUserName();
+         String  loadData();
     }
     public interface View extends BaseMVPView {
-        void updateUI(String content);
+        void loadDataSuccess(String content);
     }
 
     public interface Presenter{

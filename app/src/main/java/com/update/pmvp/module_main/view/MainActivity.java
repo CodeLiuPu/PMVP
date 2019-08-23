@@ -38,7 +38,7 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements Main
     }
 
     @Override
-    public void updateUI(String content) {
+    public void loadDataSuccess(String content) {
         tv_content.setText(content);
     }
 }
