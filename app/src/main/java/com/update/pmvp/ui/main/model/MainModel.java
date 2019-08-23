@@ -1,6 +1,6 @@
-package com.update.pmvp.module_main.model;
+package com.update.pmvp.ui.main.model;
 
-import com.update.pmvp.module_main.contract.MainContract;
+import com.update.pmvp.ui.main.contract.MainContract;
 
 /**
  * @author : liupu

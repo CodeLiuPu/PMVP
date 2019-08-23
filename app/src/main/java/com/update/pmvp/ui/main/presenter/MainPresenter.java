@@ -1,8 +1,8 @@
-package com.update.pmvp.module_main.presenter;
+package com.update.pmvp.ui.main.presenter;
 
 import com.update.module_base.mvp.presenter.BaseMVPPresenter;
-import com.update.pmvp.module_main.contract.MainContract;
-import com.update.pmvp.module_main.model.MainModel;
+import com.update.pmvp.ui.main.contract.MainContract;
+import com.update.pmvp.ui.main.model.MainModel;
 
 /**
  * @author : liupu

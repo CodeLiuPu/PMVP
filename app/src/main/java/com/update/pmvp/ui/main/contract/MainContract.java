@@ -1,4 +1,4 @@
-package com.update.pmvp.module_main.contract;
+package com.update.pmvp.ui.main.contract;
 
 import com.update.module_base.mvp.model.BaseMVPModel;
 import com.update.module_base.mvp.view.BaseMVPView;

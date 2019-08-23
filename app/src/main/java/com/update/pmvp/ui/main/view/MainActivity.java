@@ -1,12 +1,12 @@
-package com.update.pmvp.module_main.view;
+package com.update.pmvp.ui.main.view;
 
 import android.view.View;
 import android.widget.TextView;
 
 import com.update.module_base.ui.activity.BaseMvpActivity;
 import com.update.pmvp.R;
-import com.update.pmvp.module_main.contract.MainContract;
-import com.update.pmvp.module_main.presenter.MainPresenter;
+import com.update.pmvp.ui.main.contract.MainContract;
+import com.update.pmvp.ui.main.presenter.MainPresenter;
 
 /**
  * @author : liupu
