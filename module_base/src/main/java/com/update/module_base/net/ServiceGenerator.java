@@ -2,8 +2,6 @@ package com.update.module_base.net;
 
 import android.util.LruCache;
 
-import com.update.module_base.GlobalConfigs;
-
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -14,12 +12,12 @@ public class ServiceGenerator {
     private ServiceGenerator() {
     }
 
-    /**
+    /**得分
      * 使用默认 host 创建retrofit
      */
-    public static <T> T getService(Class<T> serviceClass) {
-        return getCustomService(GlobalConfigs.getBaseDomain(), serviceClass);
-    }
+//    public static <T> T getService(Class<T> serviceClass) {
+//        return getCustomService(GlobalConfigs.getBaseDomain(), serviceClass);
+//    }
 
     /**
      * 使用指定 host 创建retrofit

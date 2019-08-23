@@ -11,7 +11,6 @@ import com.update.module_base.utils.log.LogUtil;
  * desc   :
  */
 public class GlobalConfigs {
-    private static final String DOMAIN_BASE = "https://www.baidu.com/";
 
     private static boolean isDebug = true;
     private static Context context;
@@ -36,10 +35,6 @@ public class GlobalConfigs {
             throw new NullPointerException("u should init GlobalConfigs first");
         }
         return context;
-    }
-
-    public static String getBaseDomain(){
-        return DOMAIN_BASE;
     }
 
 }
