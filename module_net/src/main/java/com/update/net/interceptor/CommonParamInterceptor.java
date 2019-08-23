@@ -1,4 +1,4 @@
-package com.update.module_base.net.interceptor;
+package com.update.net.interceptor;
 
 
 import java.io.IOException;

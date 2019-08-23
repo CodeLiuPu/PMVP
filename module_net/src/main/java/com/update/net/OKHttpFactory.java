@@ -1,7 +1,7 @@
-package com.update.module_base.net;
+package com.update.net;
 
-import com.update.module_base.GlobalConfigs;
-import com.update.module_base.net.interceptor.HttpLoggingInterceptor;
+
+import com.update.net.interceptor.HttpLoggingInterceptor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +44,7 @@ public class OKHttpFactory {
             }
         }
 
-        if (GlobalConfigs.isDebug()){
+        if (NetConfig.isDebug()) {
             builder.addInterceptor(new HttpLoggingInterceptor()
                     .setLevel(HttpLoggingInterceptor.Level.BODY));
         }

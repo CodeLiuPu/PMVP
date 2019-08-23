@@ -1,8 +1,9 @@
 package com.update.pmvp.net;
 
-import com.update.module_base.net.OKHttpFactory;
-import com.update.module_base.net.ServiceGenerator;
-import com.update.module_base.net.interceptor.BaseUrlInterceptor;
+
+import com.update.net.OKHttpFactory;
+import com.update.net.ServiceGenerator;
+import com.update.net.interceptor.BaseUrlInterceptor;
 
 import java.util.ArrayList;
 import java.util.List;

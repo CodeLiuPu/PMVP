@@ -1,4 +1,4 @@
-package com.update.module_base.net;
+package com.update.net;
 
 import android.support.annotation.NonNull;
 

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.update.module_base.net.interceptor;
+package com.update.net.interceptor;
 
 import java.io.EOFException;
 import java.io.IOException;
