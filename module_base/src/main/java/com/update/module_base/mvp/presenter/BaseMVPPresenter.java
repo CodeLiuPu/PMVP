@@ -7,6 +7,7 @@ import com.update.module_base.mvp.view.BaseMVPView;
  * @author : liupu
  * date   : 2019/4/15
  * desc   :
+ * github : https://github.com/CodeLiuPu/
  */
 public abstract class BaseMVPPresenter<V extends BaseMVPView, M extends BaseMVPModel> {
     protected V mView;

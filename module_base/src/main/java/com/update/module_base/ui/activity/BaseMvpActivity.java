@@ -7,6 +7,7 @@ import com.update.module_base.mvp.view.BaseMVPView;
  * @author : liupu
  * date   : 2019/4/19
  * desc   :
+ * github : https://github.com/CodeLiuPu/
  */
 public abstract class BaseMvpActivity<P extends BaseMVPPresenter>
         extends BaseSimpleActivity

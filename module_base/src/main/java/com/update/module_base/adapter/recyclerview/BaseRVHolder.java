@@ -9,6 +9,7 @@ import android.view.View;
  * @author : liupu
  * date    : 2019/4/22
  * desc    :
+ * github : https://github.com/CodeLiuPu/
  */
 public class BaseRVHolder<T extends BaseRVItem> extends RecyclerView.ViewHolder {
     public BaseRVHolder(@NonNull View itemView) {

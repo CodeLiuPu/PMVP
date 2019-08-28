@@ -12,6 +12,7 @@ import com.update.pmvp.ui.main.presenter.MainPresenter;
  * @author : liupu
  * date   : 2019/4/19
  * desc   :
+ * github : https://github.com/CodeLiuPu/
  */
 public class MainActivity extends BaseMvpActivity<MainPresenter> implements MainContract.View {
     TextView tv_content;

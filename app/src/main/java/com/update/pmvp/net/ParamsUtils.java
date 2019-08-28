@@ -10,20 +10,21 @@ import java.util.Map;
  * @author : liupu
  * date    : 2019/8/23
  * desc    :
+ * github : https://github.com/CodeLiuPu/
  */
 public class ParamsUtils implements ICommonHeadersHelper, ICommonParamsHelper {
     @Override
     public Map<String, String> getCommonHeaders() {
         Map<String, String> map = new HashMap<>();
-        map.put("token","heheewhhw");
-        map.put("channel","google");
+        map.put("token", "heheewhhw");
+        map.put("channel", "google");
         return map;
     }
 
     @Override
     public Map<String, Object> getCommonParams() {
         Map<String, Object> map = new HashMap<>();
-        map.put("name","hello");
+        map.put("name", "hello");
         return map;
     }
 }

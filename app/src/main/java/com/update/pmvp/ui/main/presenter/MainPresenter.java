@@ -8,6 +8,7 @@ import com.update.pmvp.ui.main.model.MainModel;
  * @author : liupu
  * date   : 2019/4/19
  * desc   :
+ * github : https://github.com/CodeLiuPu/
  */
 public class MainPresenter extends BaseMVPPresenter<MainContract.View, MainContract.Model> implements MainContract.Presenter {
 

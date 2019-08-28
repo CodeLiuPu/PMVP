@@ -9,6 +9,7 @@ import com.update.module_base.utils.log.LogUtil;
  * @author : liupu
  * date   : 2019/4/23
  * desc   :
+ * github : https://github.com/CodeLiuPu/
  */
 public class GlobalConfigs {
 

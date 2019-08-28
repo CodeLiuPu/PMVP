@@ -6,6 +6,7 @@ import android.util.Log;
  * @author : liupu
  * date   : 2019/4/19
  * desc   :
+ * github : https://github.com/CodeLiuPu/
  */
 public final class LogUtil {
 

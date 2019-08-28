@@ -9,6 +9,7 @@ import com.update.net.NetConfig;
  * @author : liupu
  * date   : 2019/8/21
  * desc   :
+ * github : https://github.com/CodeLiuPu/
  */
 public class App extends Application {
     @Override

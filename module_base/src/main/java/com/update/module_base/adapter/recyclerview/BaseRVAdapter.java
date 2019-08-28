@@ -12,6 +12,7 @@ import java.util.List;
  * @author : liupu
  * date    : 2019/4/22
  * desc    :
+ * github : https://github.com/CodeLiuPu/
  */
 public class BaseRVAdapter<T extends BaseRVItem, H extends RecyclerView.ViewHolder> extends RecyclerView.Adapter{
 
