@@ -17,8 +17,7 @@ import okhttp3.Interceptor;
  * date   : 2019/8/23
  * desc   :
  */
-public class HttpManager<S> {
-    private S service;
+public class HttpManager {
 
     static {
         final List<Interceptor> interceptors = new ArrayList<>();
@@ -29,17 +28,11 @@ public class HttpManager<S> {
     }
 
     public static HttpService service() {
-        return service(HttpURL.baseUrl(), HttpService.class);
+        return ServiceGenerator.getCustomService(HttpURL.baseUrl(), HttpService.class);
     }
 
     public static HttpService service(String domain) {
-        return service(domain, HttpService.class);
-    }
-
-    private static <H> H service(String domain, Class<H> clazz) {
-        HttpManager<H> httpManager = new HttpManager();
-        httpManager.service = ServiceGenerator.getCustomService(domain, clazz);
-        return httpManager.service;
+        return ServiceGenerator.getCustomService(domain, HttpService.class);
     }
 
 }
