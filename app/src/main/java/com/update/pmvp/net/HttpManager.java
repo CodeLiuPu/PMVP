@@ -29,13 +29,7 @@ public class HttpManager<S> {
     }
 
     public static HttpService service() {
-        return service(HttpService.class);
-    }
-
-    private static <H> H service(Class<H> clazz) {
-        HttpManager<H> httpManager = new HttpManager();
-        httpManager.service = ServiceGenerator.getCustomService(HttpURL.baseUrl(), clazz);
-        return httpManager.service;
+        return service(HttpURL.baseUrl(), HttpService.class);
     }
 
     public static HttpService service(String domain) {
@@ -43,9 +37,9 @@ public class HttpManager<S> {
     }
 
     private static <H> H service(String domain, Class<H> clazz) {
-        HttpManager<H> engin = new HttpManager();
-        engin.service = ServiceGenerator.getCustomService(domain, clazz);
-        return engin.service;
+        HttpManager<H> httpManager = new HttpManager();
+        httpManager.service = ServiceGenerator.getCustomService(domain, clazz);
+        return httpManager.service;
     }
 
 }
