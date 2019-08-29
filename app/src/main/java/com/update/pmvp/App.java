@@ -2,7 +2,7 @@ package com.update.pmvp;
 
 import android.app.Application;
 
-import com.update.module_base.GlobalConfigs;
+import com.update.base.GlobalConfigs;
 import com.update.net.NetConfig;
 
 /**

@@ -1,7 +1,7 @@
 package com.update.pmvp.ui.main.contract;
 
-import com.update.module_base.mvp.model.BaseMVPModel;
-import com.update.module_base.mvp.view.BaseMVPView;
+import com.update.base.mvp.model.BaseMVPModel;
+import com.update.base.mvp.view.BaseMVPView;
 
 /**
  * @author : liupu

@@ -3,7 +3,7 @@ package com.update.pmvp.ui.main.view;
 import android.view.View;
 import android.widget.TextView;
 
-import com.update.module_base.ui.activity.BaseMvpActivity;
+import com.update.base.ui.activity.BaseMvpActivity;
 import com.update.pmvp.R;
 import com.update.pmvp.ui.main.contract.MainContract;
 import com.update.pmvp.ui.main.presenter.MainPresenter;

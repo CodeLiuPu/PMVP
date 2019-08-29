@@ -1,6 +1,6 @@
 package com.update.pmvp.ui.main.presenter;
 
-import com.update.module_base.mvp.presenter.BaseMVPPresenter;
+import com.update.base.mvp.presenter.BaseMVPPresenter;
 import com.update.pmvp.ui.main.contract.MainContract;
 import com.update.pmvp.ui.main.model.MainModel;
 
