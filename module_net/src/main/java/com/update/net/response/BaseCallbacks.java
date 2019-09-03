@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
  * @author : liupu
  * date   : 2019/8/23
  * desc   :
+ * github : https://github.com/CodeLiuPu/
  */
 public interface BaseCallbacks<T> {
     void onNetStart();

@@ -6,6 +6,12 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * @author : liupu
+ * date   : 2019/8/23
+ * desc   :
+ * github : https://github.com/CodeLiuPu/
+ */
 public class ServiceGenerator {
     private static LruCache<String, Retrofit> mServiceMap = new LruCache<>(5);
 

@@ -13,6 +13,7 @@ import okhttp3.Response;
  * @author : liupu
  * date   : 2019/8/22
  * desc   : 动态替换 host 拦截器
+ * github : https://github.com/CodeLiuPu/
  */
 public class DynamicUrlInterceptor implements Interceptor {
 

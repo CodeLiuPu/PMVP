@@ -4,9 +4,7 @@ package com.update.net.interceptor;
 import com.update.net.helper.ICommonHeadersHelper;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.jar.JarEntry;
 
 import okhttp3.Headers;
 import okhttp3.Interceptor;
@@ -17,10 +15,11 @@ import okhttp3.Response;
  * @author : liupu
  * date   : 2019/8/22
  * desc   : 添加通用 header 的拦截器
+ * github : https://github.com/CodeLiuPu/
  */
 public class CommonHeaderInterceptor implements Interceptor {
 
-    ICommonHeadersHelper headersHelper;
+    private ICommonHeadersHelper headersHelper;
 
     public CommonHeaderInterceptor(ICommonHeadersHelper headersHelper) {
         this.headersHelper = headersHelper;

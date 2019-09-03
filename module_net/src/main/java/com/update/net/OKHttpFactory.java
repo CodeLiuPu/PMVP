@@ -10,6 +10,12 @@ import java.util.concurrent.TimeUnit;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 
+/**
+ * @author : liupu
+ * date   : 2019/8/23
+ * desc   :
+ * github : https://github.com/CodeLiuPu/
+ */
 public class OKHttpFactory {
     public final static int TIME_OUT = 10;
 

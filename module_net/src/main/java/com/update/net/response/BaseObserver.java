@@ -4,7 +4,12 @@ package com.update.net.response;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
-
+/**
+ * @author : liupu
+ * date   : 2019/8/23
+ * desc   :
+ * github : https://github.com/CodeLiuPu/
+ */
 public abstract class BaseObserver<T extends BaseResult> implements Observer<T>, BaseCallbacks<T> {
 
 

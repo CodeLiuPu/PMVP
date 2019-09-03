@@ -12,6 +12,12 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.schedulers.Schedulers;
 
 
+/**
+ * @author : liupu
+ * date   : 2019/8/23
+ * desc   :
+ * github : https://github.com/CodeLiuPu/
+ */
 public class RxScheduler {
     private static ObservableTransformer SchedulersObservableTransformer;
     private static FlowableTransformer SchedulersFlowableTransformer;
