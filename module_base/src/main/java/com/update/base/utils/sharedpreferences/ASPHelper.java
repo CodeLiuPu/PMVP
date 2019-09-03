@@ -15,9 +15,14 @@ import java.io.ObjectOutputStream;
  * desc   :
  * github : https://github.com/CodeLiuPu/
  */
-public abstract class ASPHelper implements ISPHelper {
+class ASPHelper implements ISPHelper {
     protected SharedPreferences mSharedPreferences;
     protected SharedPreferences.Editor editor;
+
+    public ASPHelper(SharedPreferences sharedPreferences) {
+        this.mSharedPreferences = sharedPreferences;
+        this.editor = sharedPreferences.edit();
+    }
 
     @Override
     public ISPHelper putBoolean(String key, boolean value) {

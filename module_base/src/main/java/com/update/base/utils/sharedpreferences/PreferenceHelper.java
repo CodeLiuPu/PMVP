@@ -8,10 +8,10 @@ package com.update.base.utils.sharedpreferences;
  */
 public class PreferenceHelper {
     public static ISPHelper helper(String spName) {
-        return PathSPHelper.helper(spName);
+        return SPFactory.create(spName);
     }
 
     public static ISPHelper helper() {
-        return DefaultSPHelper.helper();
+        return SPFactory.create();
     }
 }
