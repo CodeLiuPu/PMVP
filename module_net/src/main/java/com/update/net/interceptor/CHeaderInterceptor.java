@@ -1,7 +1,7 @@
 package com.update.net.interceptor;
 
 
-import com.update.net.helper.ICommonHeadersHelper;
+import com.update.net.helper.ICHeadersHelper;
 
 import java.io.IOException;
 import java.util.Map;
@@ -17,11 +17,11 @@ import okhttp3.Response;
  * desc   : 添加通用 header 的拦截器
  * github : https://github.com/CodeLiuPu/
  */
-public class CommonHeaderInterceptor implements Interceptor {
+public class CHeaderInterceptor implements Interceptor {
 
-    private ICommonHeadersHelper headersHelper;
+    private ICHeadersHelper headersHelper;
 
-    public CommonHeaderInterceptor(ICommonHeadersHelper headersHelper) {
+    public CHeaderInterceptor(ICHeadersHelper headersHelper) {
         this.headersHelper = headersHelper;
     }
 

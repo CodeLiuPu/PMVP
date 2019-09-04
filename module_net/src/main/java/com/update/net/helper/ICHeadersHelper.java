@@ -8,6 +8,6 @@ import java.util.Map;
  * desc    :
  * github : https://github.com/CodeLiuPu/
  */
-public interface ICommonParamsHelper {
-    Map<String, Object> getCommonParams();
+public interface ICHeadersHelper {
+    Map<String, String> getCommonHeaders();
 }

@@ -1,7 +1,7 @@
 package com.update.net.interceptor;
 
 
-import com.update.net.helper.ICommonParamsHelper;
+import com.update.net.helper.ICParamsHelper;
 
 import java.io.IOException;
 import java.net.URLDecoder;
@@ -19,11 +19,11 @@ import okhttp3.Response;
  * desc   : 添加通用 params 的拦截器
  * github : https://github.com/CodeLiuPu/
  */
-public class CommonParamInterceptor implements Interceptor {
+public class CParamInterceptor implements Interceptor {
 
-    private ICommonParamsHelper paramsHelper;
+    private ICParamsHelper paramsHelper;
 
-    public CommonParamInterceptor(ICommonParamsHelper paramsHelper) {
+    public CParamInterceptor(ICParamsHelper paramsHelper) {
         this.paramsHelper = paramsHelper;
     }
 

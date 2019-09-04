@@ -1,7 +1,7 @@
 package com.update.pmvp.net;
 
-import com.update.net.helper.ICommonHeadersHelper;
-import com.update.net.helper.ICommonParamsHelper;
+import com.update.net.helper.ICHeadersHelper;
+import com.update.net.helper.ICParamsHelper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +12,7 @@ import java.util.Map;
  * desc    :
  * github : https://github.com/CodeLiuPu/
  */
-public class ParamsUtils implements ICommonHeadersHelper, ICommonParamsHelper {
+public class ParamsUtils implements ICHeadersHelper, ICParamsHelper {
     @Override
     public Map<String, String> getCommonHeaders() {
         Map<String, String> map = new HashMap<>();
