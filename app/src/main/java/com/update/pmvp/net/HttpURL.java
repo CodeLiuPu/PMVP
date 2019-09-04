@@ -19,7 +19,7 @@ public class HttpURL {
         sHost = BuildConfig.DEBUG ? "https://www.baidu.com/" : "https://www.baidu.com/";
     }
 
-    public static final String HTTP_GET = "/app/get";
+    public static final String HTTP_GET = "/";
 
     public static String HTTP_POST = "/app/post";
 

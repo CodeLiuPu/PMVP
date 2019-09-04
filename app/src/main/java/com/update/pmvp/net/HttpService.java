@@ -1,5 +1,8 @@
 package com.update.pmvp.net;
 
+import io.reactivex.Observable;
+import retrofit2.http.GET;
+
 /**
  * @author : liupu
  * date   : 2019/8/23
@@ -7,4 +10,6 @@ package com.update.pmvp.net;
  * github : https://github.com/CodeLiuPu/
  */
 public interface HttpService {
+    @GET(HttpURL.HTTP_GET)
+    Observable<String> get();
 }

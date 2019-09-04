@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.update.base.GlobalConfigs;
 import com.update.net.NetConfig;
+import com.update.net.interceptor.log.Level;
 
 /**
  * @author : liupu
@@ -18,6 +19,9 @@ public class App extends Application {
         new GlobalConfigs()
                 .init(this)
                 .setDebug(true);
-        NetConfig.setDebug(true);
+        new NetConfig()
+                .setDebug(true)
+                .setLogLevel(Level.ERROR)
+                .setTag("okhttp_tag");
     }
 }
