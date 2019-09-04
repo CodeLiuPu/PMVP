@@ -236,7 +236,7 @@ public final class LogInterceptor implements Interceptor {
 
     public static class Builder {
         private Level level = Level.INFO;
-        private String tag = "Log_default";
+        private String tag = "okhttp_default_tag";
 
         public Builder logLevel(Level level) {
             this.level = level;

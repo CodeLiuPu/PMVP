@@ -1,6 +1,8 @@
 package com.update.net;
 
 
+import com.update.net.interceptor.log.LogInterceptor;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -49,10 +51,10 @@ public class OKHttpFactory {
         }
 
         if (NetConfig.isDebug()) {
-//            builder.addInterceptor(new LogInterceptor.Builder()
-//                    .logLevel(Level.WARN)
-//                    .tag("Helloya")
-//                    .build());
+            builder.addInterceptor(new LogInterceptor.Builder()
+                    .logLevel(NetConfig.logLevel())
+                    .tag(NetConfig.tag())
+                    .build());
         }
 
         return builder.build();
