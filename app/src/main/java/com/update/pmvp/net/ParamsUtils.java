@@ -16,15 +16,15 @@ public class ParamsUtils implements ICHeadersHelper, ICParamsHelper {
     @Override
     public Map<String, String> getCommonHeaders() {
         Map<String, String> map = new HashMap<>();
-        map.put("token", "heheewhhw");
-        map.put("channel", "google");
+//        map.put("token", "heheewhhw");
+//        map.put("channel", "google");
         return map;
     }
 
     @Override
     public Map<String, Object> getCommonParams() {
         Map<String, Object> map = new HashMap<>();
-        map.put("name", "hello");
+//        map.put("name", "hello");
         return map;
     }
 }
