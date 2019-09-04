@@ -1,7 +1,8 @@
 package com.update.net;
 
 
-import com.update.net.interceptor.HttpLoggingInterceptor;
+import com.update.net.interceptor.log.Level;
+import com.update.net.interceptor.log.LogInterceptor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,8 +52,9 @@ public class OKHttpFactory {
         }
 
         if (NetConfig.isDebug()) {
-            builder.addInterceptor(new HttpLoggingInterceptor()
-                    .setLevel(HttpLoggingInterceptor.Level.BODY));
+//            builder.addInterceptor(new LogInterceptor.Builder()
+//                    .logLevel(Level.BODY)
+//                    .build());
         }
 
         return builder.build();
