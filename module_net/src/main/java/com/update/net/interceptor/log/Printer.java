@@ -17,7 +17,7 @@ public class Printer {
         this.tag = builder.tag;
     }
 
-    private void log(String msg) {
+    public void log(String msg) {
         switch (level) {
             case DEBUG:
                 Log.d(tag,msg);
