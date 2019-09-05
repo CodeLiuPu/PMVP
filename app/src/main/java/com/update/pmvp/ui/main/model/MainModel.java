@@ -1,13 +1,10 @@
 package com.update.pmvp.ui.main.model;
 
-import com.update.base.utils.log.LogUtil;
 import com.update.net.response.BaseResult;
-import com.update.net.scheduler.RxScheduler;
 import com.update.pmvp.net.HttpManager;
 import com.update.pmvp.ui.main.contract.MainContract;
 
-import io.reactivex.Observer;
-import io.reactivex.disposables.Disposable;
+import io.reactivex.Observable;
 
 /**
  * @author : liupu
@@ -16,32 +13,9 @@ import io.reactivex.disposables.Disposable;
  * github : https://github.com/CodeLiuPu/
  */
 public class MainModel implements MainContract.Model {
-
     @Override
-    public String loadData() {
-        HttpManager.service().get().compose(RxScheduler.Obs_io_main())
-                .subscribe(new Observer<BaseResult<String>>() {
-
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                    }
-
-                    @Override
-                    public void onNext(BaseResult<String> result) {
-                        LogUtil.e("onNext " + result.result);
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        LogUtil.e("onError");
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        LogUtil.e("onComplete");
-                    }
-                });
-        return "Update";
+    public Observable<BaseResult<String>> loadData() {
+        return  HttpManager.service().get();
     }
 
 }

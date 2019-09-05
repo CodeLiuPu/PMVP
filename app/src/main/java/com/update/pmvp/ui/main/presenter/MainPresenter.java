@@ -1,8 +1,15 @@
 package com.update.pmvp.ui.main.presenter;
 
+
 import com.update.base.mvp.presenter.BaseMVPPresenter;
+import com.update.base.utils.log.LogUtil;
+import com.update.net.response.BaseResult;
+import com.update.net.scheduler.RxScheduler;
 import com.update.pmvp.ui.main.contract.MainContract;
 import com.update.pmvp.ui.main.model.MainModel;
+
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 /**
  * @author : liupu
@@ -14,8 +21,32 @@ public class MainPresenter extends BaseMVPPresenter<MainContract.View, MainContr
 
     @Override
     public void loadData() {
-        String name = mModel.loadData();
-        mView.loadDataSuccess(name);
+        mModel.loadData()
+                .compose(RxScheduler.Obs_io_main())
+                .as(bindAutoDispose())
+                .subscribe(new Observer<BaseResult<String>>() {
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                    }
+
+                    @Override
+                    public void onNext(BaseResult<String> result) {
+                        LogUtil.e("onNext " + result.result);
+                        mView.loadDataSuccess(result.result);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        LogUtil.e("onError");
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        LogUtil.e("onComplete");
+                    }
+                });
+
     }
 
     @Override

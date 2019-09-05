@@ -2,6 +2,9 @@ package com.update.pmvp.ui.main.contract;
 
 import com.update.base.mvp.model.BaseMVPModel;
 import com.update.base.mvp.view.BaseMVPView;
+import com.update.net.response.BaseResult;
+
+import io.reactivex.Observable;
 
 /**
  * @author : liupu
@@ -12,7 +15,7 @@ import com.update.base.mvp.view.BaseMVPView;
 public class MainContract {
 
     public interface Model extends BaseMVPModel {
-        String loadData();
+        Observable<BaseResult<String>> loadData();
     }
 
     public interface View extends BaseMVPView {

@@ -1,5 +1,6 @@
 package com.update.base.mvp.presenter;
 
+import com.uber.autodispose.AutoDisposeConverter;
 import com.update.base.mvp.model.BaseMVPModel;
 import com.update.base.mvp.view.BaseMVPView;
 
@@ -28,4 +29,7 @@ public abstract class BaseMVPPresenter<V extends BaseMVPView, M extends BaseMVPM
 
     protected abstract M initModel();
 
+    protected <T> AutoDisposeConverter<T> bindAutoDispose() {
+        return mView.bindAutoDispose();
+    }
 }
