@@ -1,6 +1,7 @@
 package com.update.pmvp.ui.main.model;
 
 import com.update.base.utils.log.LogUtil;
+import com.update.net.response.BaseResult;
 import com.update.net.scheduler.RxScheduler;
 import com.update.pmvp.net.HttpManager;
 import com.update.pmvp.ui.main.contract.MainContract;
@@ -19,15 +20,15 @@ public class MainModel implements MainContract.Model {
     @Override
     public String loadData() {
         HttpManager.service().get().compose(RxScheduler.Obs_io_main())
-                .subscribe(new Observer<String>() {
+                .subscribe(new Observer<BaseResult<String>>() {
 
                     @Override
                     public void onSubscribe(Disposable d) {
                     }
 
                     @Override
-                    public void onNext(String stringBaseResult) {
-                        LogUtil.e("onNext " + stringBaseResult);
+                    public void onNext(BaseResult<String> result) {
+                        LogUtil.e("onNext " + result.result);
                     }
 
                     @Override

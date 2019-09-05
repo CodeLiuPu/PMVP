@@ -12,7 +12,7 @@ import java.io.Serializable;
 public class BaseResult<T> implements Serializable {
 
     public String code;
-    public String msg;
-    public T data;
+    public String message;
+    public T result;
 
 }
