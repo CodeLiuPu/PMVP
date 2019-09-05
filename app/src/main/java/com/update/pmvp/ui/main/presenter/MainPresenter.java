@@ -1,15 +1,15 @@
 package com.update.pmvp.ui.main.presenter;
 
 
+import android.support.annotation.NonNull;
+
 import com.update.base.mvp.presenter.BaseMVPPresenter;
 import com.update.base.utils.log.LogUtil;
+import com.update.net.response.BaseObserver;
 import com.update.net.response.BaseResult;
 import com.update.net.scheduler.RxScheduler;
 import com.update.pmvp.ui.main.contract.MainContract;
 import com.update.pmvp.ui.main.model.MainModel;
-
-import io.reactivex.Observer;
-import io.reactivex.disposables.Disposable;
 
 /**
  * @author : liupu
@@ -24,27 +24,20 @@ public class MainPresenter extends BaseMVPPresenter<MainContract.View, MainContr
         mModel.loadData()
                 .compose(RxScheduler.Obs_io_main())
                 .as(bindAutoDispose())
-                .subscribe(new Observer<BaseResult<String>>() {
+                .subscribe(new BaseObserver<BaseResult<String>>() {
 
                     @Override
-                    public void onSubscribe(Disposable d) {
+                    public void onSuccess(@NonNull BaseResult<String> data) {
+                        LogUtil.e("onSuccess " + data.result);
+                        mView.loadDataSuccess(data.result);
                     }
 
                     @Override
-                    public void onNext(BaseResult<String> result) {
-                        LogUtil.e("onNext " + result.result);
-                        mView.loadDataSuccess(result.result);
+                    public void onFail(String code, String msg) {
+                        LogUtil.e("code " + msg);
+                        mView.loadDataSuccess(msg);
                     }
 
-                    @Override
-                    public void onError(Throwable e) {
-                        LogUtil.e("onError");
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        LogUtil.e("onComplete");
-                    }
                 });
 
     }

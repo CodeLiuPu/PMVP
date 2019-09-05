@@ -1,6 +1,8 @@
 package com.update.net.response;
 
 
+import com.update.net.HttpStatusCode;
+
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
@@ -12,29 +14,28 @@ import io.reactivex.disposables.Disposable;
  */
 public abstract class BaseObserver<T extends BaseResult> implements Observer<T>, BaseCallbacks<T> {
 
-
     @Override
     public void onSubscribe(Disposable d) {
-        onNetStart();
+
     }
 
     @Override
     public void onComplete() {
-        onNetFinish();
+
     }
 
     @Override
     public void onNext(T value) {
-//        if (TextUtils.equals(BaseModel.STATE_SUCCESS,value.getRspCode())) {
-//            onSuccess(value);
-//        } else {
-//            onException(value);
-//        }
+        if (HttpStatusCode.SUCCESS.equalsIgnoreCase(value.code)) {
+            onSuccess(value);
+        } else {
+            onFail(value.code, value.message);
+        }
     }
 
     @Override
     public void onError(Throwable e) {
-        onNetError(e);
+        onFail("", e.getMessage());
     }
 
 }

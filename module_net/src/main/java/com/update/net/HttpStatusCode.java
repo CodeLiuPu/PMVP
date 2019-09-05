@@ -7,5 +7,6 @@ package com.update.net;
  * github : https://github.com/CodeLiuPu/
  */
 public class HttpStatusCode {
-
+    /**成功*/
+    public static final String SUCCESS = "200";
 }

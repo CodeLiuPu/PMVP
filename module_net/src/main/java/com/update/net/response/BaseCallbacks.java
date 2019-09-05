@@ -9,13 +9,8 @@ import android.support.annotation.NonNull;
  * github : https://github.com/CodeLiuPu/
  */
 public interface BaseCallbacks<T> {
-    void onNetStart();
-
-    void onNetFinish();
 
     void onSuccess(@NonNull T data);
 
-    void onException(@NonNull T data);
-
-    void onNetError(@NonNull Throwable e);
+    void onFail(String code,String msg);
 }
