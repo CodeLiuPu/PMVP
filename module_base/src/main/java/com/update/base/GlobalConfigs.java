@@ -1,6 +1,6 @@
 package com.update.base;
 
-import android.content.Context;
+import android.app.Application;
 
 import com.update.base.utils.log.LogConfig;
 import com.update.base.utils.log.LogUtil;
@@ -14,10 +14,9 @@ import com.update.base.utils.log.LogUtil;
 public class GlobalConfigs {
 
     private static boolean isDebug = true;
-    private static Context context;
 
-    public GlobalConfigs init(Context context) {
-        GlobalConfigs.context = context;
+    public GlobalConfigs init(final Application app) {
+        GlobalContext.init(app);
         return this;
     }
 
@@ -29,13 +28,6 @@ public class GlobalConfigs {
 
     public static boolean isDebug() {
         return isDebug;
-    }
-
-    public static Context getContext() {
-        if (context == null) {
-            throw new NullPointerException("u should init GlobalConfigs first");
-        }
-        return context;
     }
 
 }
