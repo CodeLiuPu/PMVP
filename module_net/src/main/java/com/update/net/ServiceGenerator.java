@@ -48,7 +48,7 @@ public class ServiceGenerator {
     private static Retrofit getRetrofit(String base_url) {
         return new Retrofit.Builder()
                 .baseUrl(base_url)
-                .client(OKHttpFactory.instance().getOkHttp())
+                .client(OKHttpFactory.instance().getOkHttp(base_url))
                 .addConverterFactory(GsonConverterFactory.create())         //返回内容的转换器
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())  //请求Call的转换器
                 .build();
