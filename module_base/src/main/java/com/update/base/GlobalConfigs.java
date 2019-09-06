@@ -15,9 +15,8 @@ public class GlobalConfigs {
 
     private static boolean isDebug = true;
 
-    public GlobalConfigs init(final Application app) {
+    public GlobalConfigs(Application app) {
         GlobalContext.init(app);
-        return this;
     }
 
     public GlobalConfigs setDebug(boolean isDebug) {

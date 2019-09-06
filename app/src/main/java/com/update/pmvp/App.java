@@ -16,8 +16,7 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        new GlobalConfigs()
-                .init(this)
+        new GlobalConfigs(this)
                 .setDebug(true);
         new NetConfig()
                 .setDebug(true)
