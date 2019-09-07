@@ -1,5 +1,10 @@
 package com.update.base.ui.fragment;
 
+import android.arch.lifecycle.Lifecycle;
+
+import com.uber.autodispose.AutoDispose;
+import com.uber.autodispose.AutoDisposeConverter;
+import com.uber.autodispose.android.lifecycle.AndroidLifecycleScopeProvider;
 import com.update.base.mvp.presenter.BaseMVPPresenter;
 import com.update.base.mvp.view.BaseMVPView;
 
@@ -35,4 +40,16 @@ public abstract class BaseMvpFragment
     }
 
     protected abstract P initPresenter();
+
+    /**
+     * 绑定生命周期 防止MVP内存泄漏
+     *
+     * @param <T>
+     * @return
+     */
+    @Override
+    public final <T> AutoDisposeConverter<T> bindAutoDispose() {
+        return AutoDispose.autoDisposable(AndroidLifecycleScopeProvider
+                .from(this, Lifecycle.Event.ON_DESTROY));
+    }
 }
