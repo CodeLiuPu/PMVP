@@ -12,7 +12,7 @@ import com.update.base.GlobalContext;
  * desc   :
  * Github : https://github.com/CodeLiuPu/
  */
-public class AppUtils {
+public final class AppUtils {
 
     private AppUtils() {
     }

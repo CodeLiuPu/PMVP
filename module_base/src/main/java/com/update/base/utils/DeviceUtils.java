@@ -23,7 +23,7 @@ import java.text.SimpleDateFormat;
  * desc   :
  * Github : https://github.com/CodeLiuPu/
  */
-public class DeviceUtils {
+public final class DeviceUtils {
 
     private DeviceUtils() {
     }

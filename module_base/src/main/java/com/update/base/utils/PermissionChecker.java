@@ -12,7 +12,7 @@ import com.update.base.GlobalContext;
  * date    : 2019/8/24
  * desc    :
  */
-public class PermissionChecker {
+public final class PermissionChecker {
 
     private PermissionChecker() {
     }

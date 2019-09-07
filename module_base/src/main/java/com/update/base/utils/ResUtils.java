@@ -13,7 +13,7 @@ import com.update.base.GlobalContext;
  * desc    :
  * github : https://github.com/CodeLiuPu/
  */
-public class ResUtils {
+public final class ResUtils {
     private ResUtils() {
     }
 
@@ -22,7 +22,6 @@ public class ResUtils {
     }
 
     @ColorInt
-    @Deprecated
     public int getColor(@ColorRes int id) {
         return getResources().getColor(id);
     }
