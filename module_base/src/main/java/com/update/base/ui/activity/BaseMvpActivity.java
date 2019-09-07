@@ -21,6 +21,7 @@ public abstract class BaseMvpActivity<P extends BaseMVPPresenter>
 
     @Override
     protected void initView() {
+        super.initView();
         mPresenter = initPresenter();
         if (null != mPresenter) {
             mPresenter.attachView(this);
