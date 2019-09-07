@@ -1,6 +1,7 @@
 package com.update.base.utils;
 
 import android.content.res.Resources;
+import android.support.annotation.ArrayRes;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.StringRes;
@@ -30,4 +31,17 @@ public final class ResUtils {
         return getResources().getString(id);
     }
 
+    /**
+     * 从arrays.xml中读取array[]
+     */
+    public static String[] getStringArray(@ArrayRes int resId) {
+        return getResources().getStringArray(resId);
+    }
+
+    /**
+     * 从dimens.xml里读取dimen
+     */
+    public static int getDimen(int resId) {
+        return getResources().getDimensionPixelSize(resId);
+    }
 }
