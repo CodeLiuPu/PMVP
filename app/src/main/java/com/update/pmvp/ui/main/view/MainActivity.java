@@ -1,10 +1,12 @@
 package com.update.pmvp.ui.main.view;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 
 import com.update.base.ui.activity.BaseMvpActivity;
 import com.update.pmvp.R;
+import com.update.pmvp.ui.login.view.LoginActivity;
 import com.update.pmvp.ui.main.contract.MainContract;
 import com.update.pmvp.ui.main.presenter.MainPresenter;
 
@@ -14,7 +16,7 @@ import com.update.pmvp.ui.main.presenter.MainPresenter;
  * desc   :
  * github : https://github.com/CodeLiuPu/
  */
-public class MainActivity extends BaseMvpActivity<MainPresenter> implements MainContract.View {
+public class MainActivity extends BaseMvpActivity<MainPresenter> implements MainContract.View, View.OnClickListener {
     TextView tv_content;
 
     @Override
@@ -23,14 +25,16 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements Main
     }
 
     @Override
-    protected void initData() {
+    protected void initView() {
+        super.initView();
         tv_content = findViewById(R.id.tv_content);
-        findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPresenter.loadData();
-            }
-        });
+        findViewById(R.id.btn).setOnClickListener(this);
+        findViewById(R.id.btn2).setOnClickListener(this);
+    }
+
+    @Override
+    protected void initData() {
+
     }
 
     @Override
@@ -41,5 +45,18 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements Main
     @Override
     public void loadDataSuccess(String content) {
         tv_content.setText(content);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn:
+                mPresenter.loadData();
+                break;
+            case R.id.btn2:
+                startActivity(new Intent(this, LoginActivity.class));
+                break;
+            default:
+        }
     }
 }
