@@ -12,7 +12,7 @@ import com.update.base.GlobalContext;
  * date    : 2019/8/24
  * desc    :
  */
-public final class PermissionChecker {
+public final class PermissionChecker extends GlobalContext {
 
     private PermissionChecker() {
     }
@@ -36,10 +36,8 @@ public final class PermissionChecker {
      * @return 是否 有 该权限
      */
     public static boolean checkPermission(@NonNull String permission) {
-        boolean checkResult = false;
-        checkResult = ActivityCompat.checkSelfPermission(GlobalContext.getApp(), permission)
+        return ActivityCompat.checkSelfPermission(getApp(), permission)
                 != PackageManager.PERMISSION_GRANTED;
-        return checkResult;
     }
 
 

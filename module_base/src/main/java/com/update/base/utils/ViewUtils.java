@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewStub;
 import android.view.Window;
 
+
 /**
  * @author : liupu
  * date    : 2019/9/7
@@ -14,6 +15,9 @@ import android.view.Window;
  * github : https://github.com/CodeLiuPu/
  */
 public final class ViewUtils {
+
+    private ViewUtils() {
+    }
 
     @SuppressWarnings("unchecked")
     public static <V extends View> V findViewById(Activity ac, @IdRes int id) {

@@ -13,7 +13,7 @@ public class GlobalContext {
 
     private static Application app;
 
-    private GlobalContext() {
+    protected GlobalContext() {
     }
 
     public static void init(@NonNull final Application app) {

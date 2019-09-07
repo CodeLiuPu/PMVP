@@ -23,7 +23,7 @@ import java.text.SimpleDateFormat;
  * desc   :
  * Github : https://github.com/CodeLiuPu/
  */
-public final class DeviceUtils {
+public final class DeviceUtils extends GlobalContext {
 
     private DeviceUtils() {
     }
@@ -87,7 +87,7 @@ public final class DeviceUtils {
             return deviceId;
         }
 
-        TelephonyManager tm = (TelephonyManager) GlobalContext.getApp().getSystemService(Context.TELEPHONY_SERVICE);
+        TelephonyManager tm = (TelephonyManager) getApp().getSystemService(Context.TELEPHONY_SERVICE);
         deviceId = tm.getDeviceId();
         return deviceId;
     }
@@ -103,7 +103,7 @@ public final class DeviceUtils {
             return MEID;
         }
 
-        TelephonyManager tm = (TelephonyManager) GlobalContext.getApp().getSystemService(Context.TELEPHONY_SERVICE);
+        TelephonyManager tm = (TelephonyManager) getApp().getSystemService(Context.TELEPHONY_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             MEID = tm.getMeid();
         } else {
@@ -123,7 +123,7 @@ public final class DeviceUtils {
             return IMEI;
         }
 
-        TelephonyManager tm = (TelephonyManager) GlobalContext.getApp().getSystemService(Context.TELEPHONY_SERVICE);
+        TelephonyManager tm = (TelephonyManager) getApp().getSystemService(Context.TELEPHONY_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             IMEI = tm.getImei();
         } else {
@@ -140,7 +140,7 @@ public final class DeviceUtils {
         StatFs statFs = new StatFs(path.getPath());
         long blockSize = statFs.getBlockSize();
         long totalBlocks = statFs.getBlockCount();
-        return Formatter.formatFileSize(GlobalContext.getApp(), blockSize * totalBlocks);
+        return Formatter.formatFileSize(getApp(), blockSize * totalBlocks);
     }
 
     /**
@@ -149,7 +149,7 @@ public final class DeviceUtils {
      */
     @SuppressLint("HardwareIds")
     private static String getMac() {
-        WifiManager wifiManager = (WifiManager) GlobalContext.getApp()
+        WifiManager wifiManager = (WifiManager) getApp()
                 .getApplicationContext()
                 .getSystemService(Context.WIFI_SERVICE);
         if (wifiManager == null) {

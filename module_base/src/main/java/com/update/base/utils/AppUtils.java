@@ -12,7 +12,7 @@ import com.update.base.GlobalContext;
  * desc   :
  * Github : https://github.com/CodeLiuPu/
  */
-public final class AppUtils {
+public final class AppUtils extends GlobalContext {
 
     private AppUtils() {
     }
@@ -22,11 +22,11 @@ public final class AppUtils {
      */
     public static synchronized String getAppName() {
         try {
-            PackageManager packageManager = GlobalContext.getApp().getPackageManager();
+            PackageManager packageManager = getApp().getPackageManager();
             PackageInfo packageInfo = packageManager.getPackageInfo(
-                    GlobalContext.getApp().getPackageName(), 0);
+                    getApp().getPackageName(), 0);
             int labelRes = packageInfo.applicationInfo.labelRes;
-            return GlobalContext.getApp().getResources().getString(labelRes);
+            return getApp().getResources().getString(labelRes);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -38,9 +38,9 @@ public final class AppUtils {
      */
     public static synchronized String getVersionName() {
         try {
-            PackageManager packageManager = GlobalContext.getApp().getPackageManager();
+            PackageManager packageManager = getApp().getPackageManager();
             PackageInfo packageInfo = packageManager.getPackageInfo(
-                    GlobalContext.getApp().getPackageName(), 0);
+                    getApp().getPackageName(), 0);
             return packageInfo.versionName;
         } catch (Exception e) {
             e.printStackTrace();
@@ -54,9 +54,9 @@ public final class AppUtils {
      */
     public static synchronized int getVersionCode() {
         try {
-            PackageManager packageManager = GlobalContext.getApp().getPackageManager();
+            PackageManager packageManager = getApp().getPackageManager();
             PackageInfo packageInfo = packageManager.getPackageInfo(
-                    GlobalContext.getApp().getPackageName(), 0);
+                    getApp().getPackageName(), 0);
             return packageInfo.versionCode;
         } catch (Exception e) {
             e.printStackTrace();

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import com.update.base.GlobalConfigs;
 import com.update.base.GlobalContext;
 
 import java.util.LinkedHashMap;
@@ -15,7 +14,10 @@ import java.util.LinkedHashMap;
  * desc   :
  * github : https://github.com/CodeLiuPu/
  */
-class SPFactory {
+class SPFactory extends GlobalContext {
+    private SPFactory(){
+
+    }
     private static final LinkedHashMap<String, ISPHelper> helpers = new LinkedHashMap<>(3, 0.75F, true);
 
     static ISPHelper create() {
@@ -35,7 +37,7 @@ class SPFactory {
             ISPHelper manager = helpers.get(spName);
             if (manager == null) {
                 SharedPreferences mSharedPreferences =
-                        GlobalContext.getApp().getSharedPreferences(spName, Context.MODE_PRIVATE);
+                        getApp().getSharedPreferences(spName, Context.MODE_PRIVATE);
                 manager = new ASPHelper(mSharedPreferences);
                 helpers.put(spName, manager);
             }
@@ -45,6 +47,6 @@ class SPFactory {
 
     private static final class DefaultHolder {
         private static final ISPHelper defaultHelper =
-                new ASPHelper(PreferenceManager.getDefaultSharedPreferences(GlobalContext.getApp()));
+                new ASPHelper(PreferenceManager.getDefaultSharedPreferences(getApp()));
     }
 }

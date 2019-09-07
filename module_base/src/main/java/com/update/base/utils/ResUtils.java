@@ -14,12 +14,12 @@ import com.update.base.GlobalContext;
  * desc    :
  * github : https://github.com/CodeLiuPu/
  */
-public final class ResUtils {
+public final class ResUtils extends GlobalContext {
     private ResUtils() {
     }
 
     public static Resources getResources() {
-        return GlobalContext.getApp().getResources();
+        return getApp().getResources();
     }
 
     @ColorInt
