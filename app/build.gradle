@@ -1,13 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion compileVer.compileSdkVersion
     defaultConfig {
-        applicationId "com.update.pmvp"
-        minSdkVersion 19
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        applicationId appVersion.applicationId
+        minSdkVersion compileVer.minSdkVersion
+        targetSdkVersion compileVer.targetSdkVersion
+        versionCode appVersion.versionCode
+        versionName appVersion.versionName
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

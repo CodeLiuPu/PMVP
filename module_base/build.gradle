@@ -1,13 +1,12 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 28
-
+    compileSdkVersion compileVer.compileSdkVersion
 
 
     defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 28
+        minSdkVersion compileVer.minSdkVersion
+        targetSdkVersion compileVer.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
@@ -30,16 +29,18 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    api 'com.android.support:appcompat-v7:28.0.0'
-    api 'com.android.support:recyclerview-v7:28.0.0'
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    // rxjava
-    api 'io.reactivex.rxjava2:rxandroid:2.1.1'
-    api 'io.reactivex.rxjava2:rxjava:2.2.6'
 
-    api "com.uber.autodispose:autodispose:0.7.0"
-    api "com.uber.autodispose:autodispose-android:0.7.0"
-    api "com.uber.autodispose:autodispose-android-archcomponents:0.7.0"
+    api dependenciesRep.SupportAppcompat
+    api dependenciesRep.SupportRecyclerview
+
+    api dependenciesRep.RxJava2
+    api dependenciesRep.RxAndroid2
+
+    api dependenciesRep.Autodispose
+    api dependenciesRep.AutodisposeAndroid
+    api dependenciesRep.AutodisposeAndroidArchcomponents
 }
