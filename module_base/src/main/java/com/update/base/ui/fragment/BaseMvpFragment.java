@@ -1,6 +1,8 @@
 package com.update.base.ui.fragment;
 
 import android.arch.lifecycle.Lifecycle;
+import android.arch.lifecycle.LifecycleObserver;
+import android.support.annotation.Nullable;
 
 import com.uber.autodispose.AutoDispose;
 import com.uber.autodispose.AutoDisposeConverter;
@@ -14,9 +16,7 @@ import com.update.base.mvp.view.BaseMVPView;
  * desc    :
  * github : https://github.com/CodeLiuPu/
  */
-public abstract class BaseMvpFragment
-        <P extends BaseMVPPresenter>
-        extends BaseSimpleFragment
+public abstract class BaseMvpFragment<P extends BaseMVPPresenter> extends BaseSimpleFragment
         implements BaseMVPView {
 
     protected P mPresenter;
@@ -27,29 +27,25 @@ public abstract class BaseMvpFragment
         mPresenter = initPresenter();
         if (null != mPresenter) {
             mPresenter.attachView(this);
+            addObserver(mPresenter);
         }
-    }
-
-    @Override
-    public void onDestroyView() {
-        if (mPresenter != null) {
-            mPresenter.detachView();
-            mPresenter = null;
-        }
-        super.onDestroyView();
     }
 
     protected abstract P initPresenter();
 
     /**
      * 绑定生命周期 防止MVP内存泄漏
-     *
-     * @param <T>
-     * @return
      */
     @Override
     public final <T> AutoDisposeConverter<T> bindAutoDispose() {
         return AutoDispose.autoDisposable(AndroidLifecycleScopeProvider
                 .from(this, Lifecycle.Event.ON_DESTROY));
+    }
+
+    @Override
+    public <V extends LifecycleObserver> void addObserver(@Nullable V observer) {
+        if (observer != null) {
+            getLifecycle().addObserver(observer);
+        }
     }
 }

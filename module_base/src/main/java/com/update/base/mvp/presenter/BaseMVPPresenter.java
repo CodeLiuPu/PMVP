@@ -1,8 +1,13 @@
 package com.update.base.mvp.presenter;
 
+import android.arch.lifecycle.Lifecycle;
+import android.arch.lifecycle.LifecycleObserver;
+import android.arch.lifecycle.OnLifecycleEvent;
+
 import com.uber.autodispose.AutoDisposeConverter;
 import com.update.base.mvp.model.BaseMVPModel;
 import com.update.base.mvp.view.BaseMVPView;
+import com.update.base.utils.log.LogUtil;
 
 /**
  * @author : liupu
@@ -10,7 +15,8 @@ import com.update.base.mvp.view.BaseMVPView;
  * desc   :
  * github : https://github.com/CodeLiuPu/
  */
-public abstract class BaseMVPPresenter<V extends BaseMVPView, M extends BaseMVPModel> {
+public abstract class BaseMVPPresenter<V extends BaseMVPView, M extends BaseMVPModel>  implements
+        LifecycleObserver{
     protected V mView;
     protected M mModel;
 
@@ -20,14 +26,20 @@ public abstract class BaseMVPPresenter<V extends BaseMVPView, M extends BaseMVPM
 
     public void attachView(V view) {
         this.mView = view;
-        this.mModel = initModel();
+        this.mModel = createModel();
     }
 
-    public void detachView() {
+    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+    void onStop() {
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    void onDestroy() {
         this.mView = null;
+        this.mModel = null;
     }
 
-    protected abstract M initModel();
+    protected abstract M createModel();
 
     protected <T> AutoDisposeConverter<T> bindAutoDispose() {
         return mView.bindAutoDispose();
