@@ -10,6 +10,10 @@ import android.support.annotation.NonNull;
  */
 public interface BaseCallbacks<T> {
 
+    default void onRequestStart(){}
+
+    default void onRequestFinish(){}
+
     void onSuccess(@NonNull T data);
 
     void onFail(String code,String msg);

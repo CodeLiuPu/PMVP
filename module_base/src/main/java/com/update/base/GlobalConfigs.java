@@ -8,7 +8,7 @@ import com.update.base.utils.log.LogUtil;
 /**
  * @author : liupu
  * date   : 2019/4/23
- * desc   :
+ * desc   : 全局配置项
  * github : https://github.com/CodeLiuPu/
  */
 public class GlobalConfigs {

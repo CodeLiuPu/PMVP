@@ -10,7 +10,7 @@ import android.support.v4.app.FragmentTransaction;
 /**
  * @author : liupu
  * date    : 2019/9/8
- * desc    :
+ * desc    : Fragment 相关工具类
  * github : https://github.com/CodeLiuPu/
  */
 public final class FragmentUtils {

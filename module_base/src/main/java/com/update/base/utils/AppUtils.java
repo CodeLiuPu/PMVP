@@ -9,7 +9,7 @@ import com.update.base.GlobalContext;
 /**
  * @author : liupu
  * date   : 2019/8/24
- * desc   :
+ * desc   : App相关工具类
  * Github : https://github.com/CodeLiuPu/
  */
 public final class AppUtils extends GlobalContext {

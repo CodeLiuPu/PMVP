@@ -20,7 +20,7 @@ import java.text.SimpleDateFormat;
 /**
  * @author : liupu
  * date   : 2019/8/24
- * desc   :
+ * desc   : 设备相关工具类
  * Github : https://github.com/CodeLiuPu/
  */
 public final class DeviceUtils extends GlobalContext {

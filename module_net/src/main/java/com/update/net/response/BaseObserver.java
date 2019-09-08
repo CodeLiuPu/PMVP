@@ -16,12 +16,12 @@ public abstract class BaseObserver<T extends BaseResult> implements Observer<T>,
 
     @Override
     public void onSubscribe(Disposable d) {
-
+        onRequestStart();
     }
 
     @Override
     public void onComplete() {
-
+        onRequestFinish();
     }
 
     @Override
@@ -35,6 +35,7 @@ public abstract class BaseObserver<T extends BaseResult> implements Observer<T>,
 
     @Override
     public void onError(Throwable e) {
+        onRequestFinish();
         onFail("", e.getMessage());
     }
 

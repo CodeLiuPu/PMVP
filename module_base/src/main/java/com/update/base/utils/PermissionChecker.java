@@ -10,7 +10,8 @@ import com.update.base.GlobalContext;
 /**
  * @author : liupu
  * date    : 2019/8/24
- * desc    :
+ * desc    : 权限检查工具类
+ * github : https://github.com/CodeLiuPu/
  */
 public final class PermissionChecker extends GlobalContext {
 
