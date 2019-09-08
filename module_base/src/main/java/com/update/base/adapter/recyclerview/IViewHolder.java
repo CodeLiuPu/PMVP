@@ -21,4 +21,6 @@ public interface IViewHolder<T> {
         return setText(viewId, ResUtils.getString(value));
     }
 
+    void setOnClickListener(@IdRes int viewId, View.OnClickListener listener);
+
 }
