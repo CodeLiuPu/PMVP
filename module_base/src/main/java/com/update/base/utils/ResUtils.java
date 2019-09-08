@@ -4,6 +4,7 @@ import android.content.res.Resources;
 import android.support.annotation.ArrayRes;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
+import android.support.annotation.DimenRes;
 import android.support.annotation.StringRes;
 
 import com.update.base.GlobalContext;
@@ -15,6 +16,7 @@ import com.update.base.GlobalContext;
  * github : https://github.com/CodeLiuPu/
  */
 public final class ResUtils extends GlobalContext {
+
     private ResUtils() {
     }
 
@@ -41,7 +43,7 @@ public final class ResUtils extends GlobalContext {
     /**
      * 从dimens.xml里读取dimen
      */
-    public static int getDimen(int resId) {
+    public static int getDimen(@DimenRes int resId) {
         return getResources().getDimensionPixelSize(resId);
     }
 }
