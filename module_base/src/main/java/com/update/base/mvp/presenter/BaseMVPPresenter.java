@@ -7,7 +7,6 @@ import android.arch.lifecycle.OnLifecycleEvent;
 import com.uber.autodispose.AutoDisposeConverter;
 import com.update.base.mvp.model.BaseMVPModel;
 import com.update.base.mvp.view.BaseMVPView;
-import com.update.base.utils.log.LogUtil;
 
 /**
  * @author : liupu
@@ -15,8 +14,7 @@ import com.update.base.utils.log.LogUtil;
  * desc   :
  * github : https://github.com/CodeLiuPu/
  */
-public abstract class BaseMVPPresenter<V extends BaseMVPView, M extends BaseMVPModel>  implements
-        LifecycleObserver{
+public abstract class BaseMVPPresenter<V extends BaseMVPView, M extends BaseMVPModel> implements LifecycleObserver {
     protected V mView;
     protected M mModel;
 
