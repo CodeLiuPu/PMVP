@@ -8,8 +8,8 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.text.format.Formatter;
-
 
 import com.update.base.GlobalContext;
 
@@ -82,13 +82,15 @@ public final class DeviceUtils extends GlobalContext {
     @SuppressLint({"MissingPermission", "HardwareIds"})
     public static String getDeviceId() {
         String deviceId = "00000000000000";
-
         if (PermissionChecker.noPermission(Manifest.permission.READ_PHONE_STATE)) {
             return deviceId;
         }
 
         TelephonyManager tm = (TelephonyManager) getApp().getSystemService(Context.TELEPHONY_SERVICE);
-        deviceId = tm.getDeviceId();
+        String temp = tm.getDeviceId();
+        if (!TextUtils.isEmpty(temp)) {
+            deviceId = temp;
+        }
         return deviceId;
     }
 
@@ -98,16 +100,20 @@ public final class DeviceUtils extends GlobalContext {
     @SuppressLint({"MissingPermission", "HardwareIds"})
     public static String getMEID() {
         String MEID = "00000000000000";
-
         if (PermissionChecker.noPermission(Manifest.permission.READ_PHONE_STATE)) {
             return MEID;
         }
 
+        String temp = "";
         TelephonyManager tm = (TelephonyManager) getApp().getSystemService(Context.TELEPHONY_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            MEID = tm.getMeid();
+            temp = tm.getMeid();
         } else {
-            MEID = tm.getDeviceId();
+            temp = tm.getDeviceId();
+        }
+
+        if (!TextUtils.isEmpty(temp)) {
+            MEID = temp;
         }
         return MEID;
     }
@@ -118,18 +124,40 @@ public final class DeviceUtils extends GlobalContext {
     @SuppressLint({"MissingPermission", "HardwareIds"})
     public static String getIMEI() {
         String IMEI = "00000000000000";
-
         if (PermissionChecker.noPermission(Manifest.permission.READ_PHONE_STATE)) {
             return IMEI;
         }
 
         TelephonyManager tm = (TelephonyManager) getApp().getSystemService(Context.TELEPHONY_SERVICE);
+        String temp = "";
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            IMEI = tm.getImei();
+            temp = tm.getImei();
         } else {
-            IMEI = tm.getDeviceId();
+            temp = tm.getDeviceId();
+        }
+
+        if (!TextUtils.isEmpty(temp)) {
+            IMEI = temp;
         }
         return IMEI;
+    }
+
+    /**
+     * 获取手机IMSI号
+     */
+    @SuppressLint({"MissingPermission", "HardwareIds"})
+    public static String getIMSI() {
+        String IMSI = "00000000000000";
+        if (PermissionChecker.noPermission(Manifest.permission.READ_PHONE_STATE)) {
+            return IMSI;
+        }
+
+        TelephonyManager tm = (TelephonyManager) getApp().getSystemService(Context.TELEPHONY_SERVICE);
+        String temp = tm.getSubscriberId();
+        if (!TextUtils.isEmpty(temp)) {
+            IMSI = temp;
+        }
+        return IMSI;
     }
 
     /**
