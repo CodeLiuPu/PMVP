@@ -6,7 +6,7 @@ package com.update.base.utils.sharedpreferences;
  * desc   : SharePreferences 工具类
  * github : https://github.com/CodeLiuPu/
  */
-public class PreferenceHelper {
+public class SPHelper {
     public static ISPHelper helper(String spName) {
         return SPFactory.create(spName);
     }
