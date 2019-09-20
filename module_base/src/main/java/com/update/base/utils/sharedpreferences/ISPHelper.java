@@ -6,7 +6,7 @@ package com.update.base.utils.sharedpreferences;
  * desc   :
  * github : https://github.com/CodeLiuPu/
  */
-interface ISPHelper {
+public interface ISPHelper {
 
     ISPHelper putBoolean(String key, boolean value);
 
