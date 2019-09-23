@@ -100,13 +100,15 @@ class ASPHelper implements ISPHelper {
     }
 
     @Override
-    public void remove(String key) {
+    public ISPHelper remove(String key) {
         editor.remove(key);
+        return this;
     }
 
     @Override
-    public void clear() {
+    public ISPHelper clear() {
         editor.clear();
+        return this;
     }
 
     @Override

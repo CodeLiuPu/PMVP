@@ -28,9 +28,9 @@ public interface ISPHelper {
 
     <T> T readObject(String key);
 
-    void remove(String key);
+    ISPHelper remove(String key);
 
-    void clear();
+    ISPHelper clear();
 
     boolean commit();
 
