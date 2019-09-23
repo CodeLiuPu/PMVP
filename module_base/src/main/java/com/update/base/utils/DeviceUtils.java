@@ -50,9 +50,10 @@ public final class DeviceUtils extends GlobalContext {
 
     /**
      * 获取 SDK版本
+     * 例如 : Android_20
      */
     public static String getSDKVersion() {
-        return String.valueOf(Build.VERSION.SDK_INT);
+        return "Android_" + Build.VERSION.SDK_INT;
     }
 
     /**
