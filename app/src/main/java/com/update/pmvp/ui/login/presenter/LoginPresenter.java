@@ -19,9 +19,13 @@ import com.update.pmvp.ui.login.model.LoginModel;
  */
 public class LoginPresenter extends BaseMVPPresenter<LoginContract.View, LoginContract.Model> implements LoginContract.Presenter {
 
+    public LoginPresenter(LoginContract.View view) {
+        super(view);
+    }
+
     @Override
-    public void loadData() {
-        mModel.loadData()
+    public void login() {
+        mModel.login()
                 .compose(RxScheduler.Obs_io_main())
                 .as(bindAutoDispose())
                 .subscribe(new BaseObserver<BaseResult<String>>() {
@@ -29,13 +33,13 @@ public class LoginPresenter extends BaseMVPPresenter<LoginContract.View, LoginCo
                     @Override
                     public void onSuccess(@NonNull BaseResult<String> data) {
                         LogUtil.e("onSuccess " + data.result);
-                        mView.loadDataSuccess(data.result);
+                        mView.loginSuccess(data.result);
                     }
 
                     @Override
                     public void onFail(String code, String msg) {
                         LogUtil.e("code " + msg);
-                        mView.loadDataSuccess(msg);
+                        mView.loginSuccess(msg);
                     }
 
                 });

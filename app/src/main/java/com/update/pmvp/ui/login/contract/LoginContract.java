@@ -15,14 +15,14 @@ import io.reactivex.Observable;
 public class LoginContract {
 
     public interface Model extends BaseMVPModel {
-        Observable<BaseResult<String>> loadData();
+        Observable<BaseResult<String>> login();
     }
 
     public interface View extends BaseMVPView {
-        void loadDataSuccess(String content);
+        void loginSuccess(String content);
     }
 
     public interface Presenter {
-        void loadData();
+        void login();
     }
 }

@@ -18,11 +18,11 @@ public abstract class BaseMVPPresenter<V extends BaseMVPView, M extends BaseMVPM
     protected V mView;
     protected M mModel;
 
-    public BaseMVPPresenter() {
-
+    public BaseMVPPresenter(V view) {
+        attachView(view);
     }
 
-    public void attachView(V view) {
+    private void attachView(V view) {
         this.mView = view;
         this.mModel = createModel();
     }

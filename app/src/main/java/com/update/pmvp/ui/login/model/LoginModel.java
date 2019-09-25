@@ -14,7 +14,7 @@ import io.reactivex.Observable;
  */
 public class LoginModel implements LoginContract.Model {
     @Override
-    public Observable<BaseResult<String>> loadData() {
+    public Observable<BaseResult<String>> login() {
         return  HttpManager.service().get();
     }
 

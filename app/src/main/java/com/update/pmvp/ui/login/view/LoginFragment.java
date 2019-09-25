@@ -14,7 +14,7 @@ import com.update.pmvp.ui.login.presenter.LoginPresenter;
 public class LoginFragment extends BaseMvpFragment<LoginPresenter> implements LoginContract.View {
     @Override
     protected LoginPresenter initPresenter() {
-        return new LoginPresenter();
+        return new LoginPresenter(this);
     }
 
     @Override
@@ -28,7 +28,7 @@ public class LoginFragment extends BaseMvpFragment<LoginPresenter> implements Lo
     }
 
     @Override
-    public void loadDataSuccess(String content) {
+    public void loginSuccess(String content) {
 
     }
 

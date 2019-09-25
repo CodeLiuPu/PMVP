@@ -19,6 +19,10 @@ import com.update.pmvp.ui.main.model.MainModel;
  */
 public class MainPresenter extends BaseMVPPresenter<MainContract.View, MainContract.Model> implements MainContract.Presenter {
 
+    public MainPresenter(MainContract.View view) {
+        super(view);
+    }
+
     @Override
     public void loadData() {
         mModel.loadData()

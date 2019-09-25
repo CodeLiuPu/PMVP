@@ -25,7 +25,6 @@ public abstract class BaseMvpActivity<P extends BaseMVPPresenter> extends BaseSi
         super.initView();
         mPresenter = initPresenter();
         if (null != mPresenter) {
-            mPresenter.attachView(this);
             addObserver(mPresenter);
         }
     }
