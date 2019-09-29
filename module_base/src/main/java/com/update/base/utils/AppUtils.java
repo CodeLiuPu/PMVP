@@ -64,4 +64,18 @@ public final class AppUtils extends GlobalContext {
         return 0;
     }
 
+    /**
+     * 获取包名
+     */
+    public static String getPackageName() {
+        try {
+            PackageManager packageManager = getApp().getPackageManager();
+            PackageInfo packageInfo = packageManager.getPackageInfo(
+                    getApp().getPackageName(), 0);
+            return packageInfo.packageName;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
 }
