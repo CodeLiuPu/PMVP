@@ -32,11 +32,11 @@ public class TakePhotoUtil extends GlobalContext {
     }
 
 
-    public void takePhoto(TPBridgeFragment.OnTakePhotoResultListener listener) {
+    public void takePhoto(TPBridgeFragment.OnTakePhotoListener listener) {
         if (activity == null) {
             throw new RuntimeException("call with() first");
         }
-        bridgeFragment.setOnResultListener(listener);
+        bridgeFragment.setResultListener(listener);
         Intent intent = new Intent(Intent.ACTION_PICK,
                 ContactsContract.Contacts.CONTENT_URI);
         bridgeFragment.startActivityForResult(intent, INTERNAL_REQUEST_CODE);

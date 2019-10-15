@@ -4,6 +4,8 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 
+import static android.app.Activity.RESULT_OK;
+
 /**
  * @author : liupu
  * date   : 2019/10/15
@@ -11,13 +13,16 @@ import android.os.Bundle;
  * github : https://github.com/CodeLiuPu/
  */
 public class TPBridgeFragment extends Fragment {
-    interface OnTakePhotoResultListener {
-        void onContactChoiceResult(String name, String phone);
-    }
-    private OnTakePhotoResultListener onResultListener;
 
-    void setOnResultListener(OnTakePhotoResultListener listener) {
-        this.onResultListener = listener;
+    public interface OnTakePhotoListener {
+        void onTakePhotoSuccess();
+        void onTakePhotoFail();
+    }
+
+    private OnTakePhotoListener mListener;
+
+    void setResultListener(OnTakePhotoListener listener) {
+        this.mListener = listener;
     }
 
     @Override
@@ -32,13 +37,19 @@ public class TPBridgeFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
 
-//        if (ContactChoiceUtils.INTERNAL_REQUEST_CODE == requestCode && this.onResultListener != null
-//                && (getActivity() != null && !getActivity().isFinishing()) && intent != null && intent.getData() != null) {
-//            Uri uri = intent.getData();
-//            String[] contacts = ContactChoiceUtils.getContactNameAndPhoneNumber(getActivity(), uri);
-//            String name = contacts[0];
-//            String phone = contacts[1];
-//            this.onResultListener.onContactChoiceResult(name, phone);
-//        }
+        if (this.mListener == null){
+            throw new NullPointerException("please call setResultListener() first");
+        }
+
+        if (TakePhotoUtil.INTERNAL_REQUEST_CODE == requestCode
+                && resultCode == RESULT_OK
+                && (getActivity() != null
+                && !getActivity().isFinishing())
+                && intent != null
+                && intent.getData() != null) {
+            this.mListener.onTakePhotoSuccess();
+        } else {
+            this.mListener.onTakePhotoFail();
+        }
     }
 }
