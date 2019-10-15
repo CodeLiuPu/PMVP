@@ -36,11 +36,11 @@ public class SelectPhotoUtil extends GlobalContext {
         return new SelectPhotoUtil(activity);
     }
 
-    public void takePhoto(SPBridgeFragment.OnSelectPhotoResultListener listener) {
+    public void takePhoto(SPBridgeFragment.OnSelectPhotoListener listener) {
         if (activity == null) {
             throw new RuntimeException("call with() first");
         }
-        bridgeFragment.setOnResultListener(listener);
+        bridgeFragment.setResultListener(listener);
 
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");

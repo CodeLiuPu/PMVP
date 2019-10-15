@@ -14,16 +14,17 @@ import static android.app.Activity.RESULT_OK;
  * github : https://github.com/CodeLiuPu/
  */
 public class SPBridgeFragment extends Fragment {
-    public interface OnSelectPhotoResultListener {
-        void onSelectPhotoResultSuccess(Bitmap bitmap);
 
-        void onSelectPhotoResultFail();
+    public interface OnSelectPhotoListener {
+        void onSelectPhotoSuccess(Bitmap bitmap);
+
+        void onSelectPhotoFail();
     }
 
-    private OnSelectPhotoResultListener onResultListener;
+    private OnSelectPhotoListener mListener;
 
-    void setOnResultListener(OnSelectPhotoResultListener listener) {
-        this.onResultListener = listener;
+    void setResultListener(OnSelectPhotoListener listener) {
+        this.mListener = listener;
     }
 
     @Override
@@ -37,17 +38,19 @@ public class SPBridgeFragment extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        if (this.mListener == null){
+            throw new NullPointerException("please call setResultListener() first");
+        }
         if (SelectPhotoUtil.INTERNAL_REQUEST_CODE == requestCode
                 && resultCode == RESULT_OK
-                && this.onResultListener != null
                 && (getActivity() != null
                 && !getActivity().isFinishing())
                 && intent != null
                 && intent.getData() != null) {
             Bitmap bitmap = SelectPhotoUtil.uri2Bitmap(intent.getData());
-            this.onResultListener.onSelectPhotoResultSuccess(bitmap);
+            this.mListener.onSelectPhotoSuccess(bitmap);
         } else {
-            this.onResultListener.onSelectPhotoResultFail();
+            this.mListener.onSelectPhotoFail();
         }
     }
 }
