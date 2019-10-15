@@ -36,7 +36,7 @@ public class SelectPhotoUtil extends GlobalContext {
         return new SelectPhotoUtil(activity);
     }
 
-    public void takePhoto(SPBridgeFragment.OnSelectPhotoListener listener) {
+    public void selectPhoto(SPBridgeFragment.OnSelectPhotoListener listener) {
         if (activity == null) {
             throw new RuntimeException("call with() first");
         }

@@ -64,7 +64,7 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements Main
 //                new LoginPresenter(this).login();
 //                startActivity(new Intent(this, LoginActivity.class));
 
-                SelectPhotoUtil.with(this).takePhoto(new SPBridgeFragment.OnSelectPhotoListener() {
+                SelectPhotoUtil.with(this).selectPhoto(new SPBridgeFragment.OnSelectPhotoListener() {
                     @Override
                     public void onSelectPhotoSuccess(Bitmap bitmap) {
                         LogUtil.e("SelectPhotoUtil succss");
