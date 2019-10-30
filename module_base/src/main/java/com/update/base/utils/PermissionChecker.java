@@ -38,7 +38,7 @@ public final class PermissionChecker extends GlobalContext {
      */
     public static boolean checkPermission(@NonNull String permission) {
         return ActivityCompat.checkSelfPermission(getApp(), permission)
-                != PackageManager.PERMISSION_GRANTED;
+                == PackageManager.PERMISSION_GRANTED;
     }
 
 
@@ -48,7 +48,8 @@ public final class PermissionChecker extends GlobalContext {
      * @return 是否 没有 该权限
      */
     public static boolean noPermission(@NonNull String permission) {
-        return !checkPermission(permission);
+        return ActivityCompat.checkSelfPermission(getApp(), permission)
+                != PackageManager.PERMISSION_GRANTED;
     }
 
     /**
