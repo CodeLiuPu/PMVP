@@ -1,6 +1,7 @@
 package com.update.net;
 
 
+import com.update.net.dns.OkHttpDNS;
 import com.update.net.https.HttpsUtils;
 import com.update.net.interceptor.log.LogInterceptor;
 
@@ -77,6 +78,8 @@ public class OKHttpFactory {
                     .build());
         }
 
+        // 设置 HttpDns
+        builder.dns(OkHttpDNS.getDns());
         return builder.build();
     }
 

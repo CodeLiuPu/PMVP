@@ -43,4 +43,8 @@ dependencies {
     api dependenciesRep.Retrofit2ConverterGson
 
     api project(':module_base')
+
+    api ('com.aliyun.ams:alicloud-android-httpdns:1.2.6@aar') {
+        transitive true
+    }
 }
