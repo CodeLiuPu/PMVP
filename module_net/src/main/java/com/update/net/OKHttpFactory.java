@@ -4,6 +4,7 @@ package com.update.net;
 import com.update.net.dns.OkHttpDNS;
 import com.update.net.https.HttpsUtils;
 import com.update.net.interceptor.log.LogInterceptor;
+import com.update.net.listener.OkHttpEventListener;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -80,6 +81,10 @@ public class OKHttpFactory {
 
         // 设置 HttpDns
         builder.dns(OkHttpDNS.getDns());
+
+        // 添加事件监听器
+        builder.eventListenerFactory(OkHttpEventListener.FACTORY);
+
         return builder.build();
     }
 
